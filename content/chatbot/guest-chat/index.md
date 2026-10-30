@@ -18,12 +18,8 @@ pill in the bottom-right corner. A panel opens with the property's
 branding. No login, no app download — it's a conversation, the way they'd
 talk to a front-desk agent.
 
-![Chat widget button on the resort website](/images/chatbot/widget-button.png)
-
 The open panel greets the guest and offers suggestion chips to start —
-including a Bengali option:
-
-![Open chat panel with greeting and suggestions](/images/chatbot/widget-open.png)
+including a Bengali option.
 
 The guest types in their own words, in **English or Bengali**. There are no
 menus to navigate and no commands to learn. *"Do you have a villa free next
