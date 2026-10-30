@@ -5,8 +5,10 @@ on any website: the guest widget, the booking-backend contract, and the staff
 handoff options.
 **Audience:** web developers integrating the chatbot for a resort or hotel.
 **Time:** about an hour for the widget; a day for a full backend integration.
-**Prerequisite:** the property owner has a Concierge account
-([app.vivereply.com](https://app.vivereply.com)) and has added the property.
+**Prerequisite:** none — the guided setup at
+[app.vivereply.com](https://app.vivereply.com) → **Getting started** walks
+you through everything below, with a live check at each step. This page is
+the same flow as reference documentation.
 
 ## The three integration surfaces
 
@@ -24,22 +26,30 @@ so honestly instead of inventing answers.
 
 ## Step 0 — Get your credentials
 
-The property owner does this once in the Concierge dashboard
-([app.vivereply.com](https://app.vivereply.com)):
+Do this once in the Concierge dashboard
+([app.vivereply.com](https://app.vivereply.com)), following
+**Getting started**. Each step below has a live check — it only counts as
+done when the check passes.
 
-1. **Create the property** (Settings → Properties). Note the property ID
-   (e.g. `krishnachura-retreat`).
-2. **Copy the widget snippet** (Settings → Chat widget codes). It contains
-   your **property key** — a public identifier like `demo-krishnachura`.
-3. **Register your domains** (Settings → Domains). Add every host that serves
-   the site (`www.yourresort.com` **and** `yourresort.com` if both serve).
-   Each needs an **ACTIVE** row, or the widget shows an error panel instead
-   of the chat. This is the anti-theft gate — unlisted hosts get nothing.
-4. **Mint a bridge key** (Settings → Bridge keys) only if you'll use the
-   staff API or the embedded staff widget. The secret is shown **once** —
-   copy it immediately. Format: `cb.<prefix>.<secret>`.
+1. **Account.** Sign up, then click the verification link in your email.
+   Configuration stays locked until your email is verified. Your owner
+   account can only ever see its own property.
+2. **Property + key.** Signup creates your property automatically and issues
+   a **widget key** (shape `key-<property>-<suffix>`). Find both under
+   Getting started → "Property + widget key", with copy buttons. The key
+   identifies your property to the widget — it is public, not a secret, but
+   treat it as yours alone.
+3. **Domain (the anti-theft gate).** Add your website host exactly as guests
+   see it — `www.yourresort.com`, no `https://`, no path. Add every host
+   that serves the site (`www.` and bare domain are separate rows). The row
+   becomes ACTIVE immediately; the widget renders nothing on unlisted hosts,
+   and deactivating a domain stops that site's chat on the next message.
+   `localhost` is accepted on development builds only, never in production.
+4. **Bridge key (only if you use the staff API or embedded staff widget).**
+   Mint it in the wizard or the integration kit: mint → copy once → store
+   on your server. The secret is shown **once**. Format: `cb.<prefix>.<secret>`.
 
-Hand the developer the property key and the snippet. The bridge key goes
+Hand the developer the widget key and the snippet. The bridge key goes
 straight into the server's secret store — never into chat logs, email, or
 a repo.
 
@@ -65,6 +75,12 @@ That's it. No build step, no npm package, no framework requirement.
 - **Content-Security-Policy:** if your site sets one, allow the Concierge
   origin for scripts, frames, and connects, or the panel can't load. The
   exact origin is printed on the snippet in Settings.
+
+### Verify it loads
+
+Open the chat panel once on your live site, then press **"Check for loads"**
+in the wizard. The step turns Done only when the product has seen a real
+panel open from your approved domain — not before.
 
 ### Framework notes
 
@@ -180,11 +196,16 @@ POST /api/bookings/send-details
 
 ### Register the backend
 
-In the Concierge dashboard: Settings → Suite connections → base URL +
-optional secret + room mapping. The room mapping is **positional** — list
-rooms in the same order on both sides, or the bot quotes the wrong room's
-price with full confidence. Re-verify the mapping whenever rooms are added,
-removed, or reordered.
+In the Concierge dashboard: Settings → Booking system → base URL + optional
+secret (stored encrypted, never shown back) + room mapping. The room mapping
+is **positional** — list rooms in the same order on both sides, or the bot
+quotes the wrong room's price with full confidence. Re-verify the mapping
+whenever rooms are added, removed, or reordered.
+
+The wizard's booking step turns Done only when **all three** hold: the
+connection details are saved, Test connection answers green, and at least
+one room is mapped (no row, no quote — the chatbot can only offer mapped
+rooms).
 
 ---
 
@@ -222,10 +243,10 @@ it instantly.
 
 ### Option C — Embedded staff widget
 
-Frame the Concierge staff widget in your dashboard. Your server mints a
-short-lived embed token per page load with the bridge key and renders the
-iframe — the key still never reaches the browser. See the bridge docs for
-the token flow.
+Frame the Concierge staff widget (`/staff/embed`) in your dashboard. Your
+server mints a 15-minute token per page load via
+`POST /api/bridge/embed-tokens` (authenticated with the bridge key) and
+renders the iframe — the key still never reaches the browser.
 
 ---
 
@@ -266,7 +287,7 @@ quote → draft → lookup round-trip on the real site.
 
 ## Go-live checklist
 
-- [ ] Domains registered (every host) + widget visible on the live site.
+- [ ] Domains registered (every host, ACTIVE) + widget opens on the live site (the wizard counts real opens).
 - [ ] Booking Test green in Settings; rooms listed with live prices.
 - [ ] Test quote → draft → lookup round-trip on the live site.
 - [ ] Staff can open the board (or your API/iframe integration) and resolve
@@ -297,3 +318,4 @@ your property ID and domain.
 - [Bridge API](../bridge-api) — the complete staff-API reference.
 - [Staff Handoff](../staff-handoff) — how handoffs work from the staff's side.
 - [Glossary](../glossary) — tenants, bindings, bridge keys, and other terms.
+
