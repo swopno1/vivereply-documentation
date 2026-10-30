@@ -62,8 +62,14 @@ and anything it doesn't know becomes a handoff, not a hallucination.
 | Page | What it covers |
 |---|---|
 | [Guest Chat](guest-chat/) | The guest experience: availability, quotes, drafts, verification, handoff |
+| [Capabilities](capabilities/) | Each capability explained — how it works, what the guest sees |
+| [Verification & Privacy](verification-privacy/) | The server-enforced privacy design |
 | [Staff Handoff](staff-handoff/) | The staff side: the handoff queue, bridge keys, embed tokens |
+| [Bridge API](bridge-api/) | Developer reference: work handoffs from your own servers |
 | [Connecting a Property](setup/) | Binding, domains, and the catalogue — what makes the Chatbot know *your* rooms |
+| [Best Practices](best-practices/) | Tips for owners, staff, and developers |
+| [Troubleshooting](troubleshooting/) | Common issues and fixes |
+| [Glossary](glossary/) | Terms across the docs, app, and API |
 | [Roadmap](roadmap/) | Where the Chatbot goes next — the full website-assistant track (in development) |
 
 ## 3. Where it lives
@@ -83,3 +89,4 @@ they talk through the versioned contract (spec v1).
 
 *Note: the Chatbot's own codebase is maintained separately. These docs
 describe its behavior and its contract with the Suite, not its internals.*
+

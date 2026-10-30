@@ -5,12 +5,11 @@ live product.
 
 ## 1. The generalist track
 
-Today the [ViveReply Chatbot](index.md) is a front-office specialist:
-one domain, live booking data, tools for availability, quotes, drafts,
-and handoffs. The roadmap extends the same product line into the
-generalist: **any business website, answering from that business's own
-content** — pages, docs, FAQs — using retrieval-augmented generation
-(RAG).
+Today the [ViveReply Chatbot](..) is a front-office specialist: one domain,
+live booking data, tools for availability, quotes, drafts, and handoffs.
+The roadmap extends the same product line into the generalist: **any
+business website, answering from that business's own content** — pages,
+docs, FAQs — using retrieval-augmented generation (RAG).
 
 | | Today's Chatbot (Concierge build) | Roadmap: full website assistant |
 |---|---|---|
@@ -19,16 +18,26 @@ content** — pages, docs, FAQs — using retrieval-augmented generation
 | **Actions** | Books drafts, verifies bookings, hands off | Answers, guides, captures leads |
 | **Framing** | Front-desk agent, never an MCP | Website assistant |
 
-The family traits carry over: grounded answers (tools or retrieval,
-never raw hallucination), handoff to a human when stuck, and the
-business's voice — not a generic bot.
+The family traits carry over: grounded answers (tools or retrieval, never
+raw hallucination), handoff to a human when stuck, and the business's voice
+— not a generic bot.
 
-## 2. Current status
+## 2. On the near horizon
 
-The full website-assistant is a **parallel track** alongside the
-Concierge build — not live yet. These docs will grow with it: knowledge
-sources, embedding, lead capture, and the dashboard. Until then, this
-page is the placeholder that says so honestly.
+- **Booking payments** — built, trial pending: server-minted payment links
+  (Stripe card or manual transfer) pressed from held drafts. The bot never
+  takes payment itself and never invents a URL.
+- **Seasonal rates** — the catalogue supports flat nightly prices today;
+  date-range rate rules are next.
+- **WhatsApp channel** — the handoff and chat model extends to WhatsApp
+  Business. Not live; don't promise it to guests yet.
+
+## 3. Current status
+
+The full website-assistant is a **parallel track** alongside the Concierge
+build — not live yet. These docs will grow with it: knowledge sources,
+embedding, lead capture, and the dashboard. Until then, this page is the
+placeholder that says so honestly.
 
 *If you're evaluating Vivereply today: the Suite is live, the Chatbot
 (Concierge build) is the AI story in production, and the generalist
