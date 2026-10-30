@@ -5,5 +5,6 @@ const withNextra = nextra({
 })
 
 export default withNextra({
-  // Add regular Next.js options here
+  // Serve under www.vivereply.com/docs via rewrite from the main site
+  basePath: '/docs',
 })
