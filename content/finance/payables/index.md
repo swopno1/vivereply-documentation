@@ -12,15 +12,18 @@ owed what.
 
 ## 1. What the page is
 
-Three views: **suppliers owed** (ranked by balance, largest first),
+Four views: **suppliers owed** (ranked by balance, largest first),
 **open bills** (due-date order, overdue highlighted), **payments waiting**
 (SUBMITTED, oldest first), and recent payments.
 
 ## 2. Bills
 
-A supplier bill (`/admin/finance/payables/bills/new`): supplier, bill
-number, supplier reference, dates, lines, amounts. Status OPEN until fully
-paid. **Overdue bills** (due date past, still open) are the red flag —
+A supplier bill (`/admin/finance/payables/bills/new`): supplier,
+supplier reference, dates, note, lines, amounts. The bill number
+(`BILL-YYYYMM-NNNN`) is assigned by the system — you never type it.
+Status stays OPEN even when fully paid (the only other status is VOID):
+paid bills simply drop off the open-bills list. **Overdue bills** (due
+date past, still open) are the red flag —
 they age into the ageing report and strain supplier relationships.
 
 ## 3. Payments
@@ -41,6 +44,6 @@ a strategic supplier.
 
 | Symptom | Check first |
 |---|---|
-| Bill won't close | It's only partly paid — the open balance keeps it OPEN. |
+| Bill still listed | It's only partly paid — bills leave the list once the open balance hits zero. |
 | Payment stuck waiting | Needs approval from someone other than the creator. |
 | Supplier balance looks wrong | Check for unapproved payments and unposted bills. |

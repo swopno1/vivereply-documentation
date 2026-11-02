@@ -1,7 +1,8 @@
 # Blog Settings — Staff Training Module
 
 **Page:** `/admin/blog/settings` — how the blog behaves.
-**Audience:** managers, owners.
+**Audience:** owners only (the page needs the owner-only settings
+permission).
 **Time to complete:** about 15 minutes.
 **Prerequisite:** the [Blog](..) module.
 
@@ -15,21 +16,33 @@ story rules, and presentation — and explain each choice.
 - **Staff posts auto-publish** — when on, staff can publish directly;
   when off, every staff post goes through the [moderation queue](../pending/).
   Off is safer for a new team; on is faster for a trusted one.
+- **Photos per staff post** — the image cap for staff-written posts.
 - **Posts per page** — listing pagination (minimum 3).
 - **Show author name** — bylines on posts.
 - **RSS feed** — on/off for the site's feed.
 
 ## 2. Guest stories
 
+- **Accept guest submissions** — the master switch for the website's
+  story form (`/blog/submit`). Off means no new guest stories at all.
+- **Review guest posts before publishing** — when off, clean guest
+  stories go live immediately instead of landing as PENDING. (Stories the
+  spam filter holds always wait for review, whatever this says.)
 - **Confirmation email** — guests get *"we received your story"* on
-  submit and *"it's published"* on approval. Keep it on; silence kills
-  contributors.
+  submit when this is on. (The *"it's published"* and rejection emails
+  always send, regardless.) Keep it on; silence kills contributors.
 - **Allowed categories** — which shelves guest stories may sit on.
 - **Length limits** — minimum/maximum characters; the guidelines quote
   them to authors.
 - **Photos** — min/max count, max size each, allowed types
   (JPEG/PNG/WebP). Every photo needs a description — the setting can't
   enforce quality, only the editor can.
+- **Spam protection** — submissions allowed per IP per hour and per 24
+  hours, whether links are allowed in stories, the maximum links before a
+  story is rejected, and the ALL-CAPS word count that holds a story for
+  review.
+- **Email for new guest submissions** — the admin alert address. Leave
+  empty to turn alerts off.
 
 ## 3. Changing settings safely
 

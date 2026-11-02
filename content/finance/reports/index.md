@@ -12,14 +12,15 @@ each answers.
 
 ## 1. The four reports
 
-`?type=trial|pnl|balance|ageing`, with `from`/`to` date ranges:
+`?type=trial|pnl|balance|ageing`: P&L takes a `from`/`to` range; the
+others take a single as-of `to` date:
 
 | Report | Question it answers |
 |---|---|
 | **Trial balance** | Do the books balance? Every account, debits = credits. The integrity check — read it first. |
 | **Profit & loss** | Did we make money in this period? Income vs expenses. |
 | **Balance sheet** | What do we own and owe right now? Assets, liabilities, equity. |
-| **Ageing** | Who owes us, and for how long? Receivables bucketed by age — the collection priority list. |
+| **Ageing** | What do we still owe suppliers, and for how long? Open supplier bills bucketed by age — the payment priority list. |
 
 ## 2. Reading discipline
 
@@ -27,7 +28,7 @@ each answers.
   trustworthy — stop and find the break before reading P&L.
 - **P&L needs a closed context.** A P&L over an open month with unposted
   records is a draft, not a result. Close the queues first.
-- **Ageing drives action.** The oldest buckets are collection calls to
+- **Ageing drives action.** The oldest buckets are supplier payments to
   make this week, not numbers to admire.
 
 ## 3. Troubleshooting
@@ -36,4 +37,4 @@ each answers.
 |---|---|
 | Trial balance doesn't balance | Unposted records or a failed posting — check the overview and server log. |
 | P&L looks thin | Unposted operational records (folio charges post via night audit — has it run?). |
-| Ageing empty but guests owe | The guest-receivable postings depend on folio activity — check the source postings. |
+| Ageing empty but suppliers are owed | Ageing reads open supplier bills — check the bills are entered and still OPEN. |

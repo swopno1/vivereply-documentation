@@ -16,11 +16,15 @@ physical units safely.
   stable once published.
 - **Bed type, max guests** — max guests is enforced at booking time.
 - **Price per night** — the single source for quotes, folio charges, and
-  revenue math. Change it deliberately: it prices every future night from
-  the moment you save.
-- **Description and photos** — what guests read and see on the website.
+  revenue math. Change it deliberately: it prices new bookings and quotes
+  from the moment you save — existing bookings keep their stored totals
+  (folio nights prorate the booking total, not this field).
+- **Photos, amenities, and size** — photos are what guests see on the
+  website (there is no description field); amenities and size in sq ft
+  complete the listing.
 - **Active flag** — inactive types vanish from the booking form but keep
-  their history.
+  their history. The toggle lives on the room-type cards on the
+  `/admin/rooms` list, not on this tab.
 
 ## 2. The Units tab
 

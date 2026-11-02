@@ -7,13 +7,15 @@
 
 ## Learning objectives
 
-After this module you can configure the property's identity, time, and
-policies — and explain what each one drives.
+After this module you can read the property's identity, configure its
+contact details, time, and policies — and explain what each one drives.
 
 ## 1. Property identity and contact
 
-Name, address, phone, email — what guests see on confirmations, receipts,
-and the website footer. The **contact email** is also where lead alerts go
+The **name and address are read-only** — they come from the property's
+code config, tied to the logo, domain, and map pin, so they change only
+with a code update. What you *can* edit here is the contact row: **phone,
+email, WhatsApp**. The **contact email** is also where lead alerts go
 (see the contact form wiring): if it's still a placeholder, alerts go
 nowhere — set the real one.
 

@@ -6,8 +6,9 @@
 
 Every movement of stock in or out of the main store goes through one of
 three kinds. All three allow **several items at once**, post **together**
-(nothing half-saves), and record quantities to three decimals. Any line
-worth more than ৳1 crore is rejected — recheck quantity and price.
+(nothing half-saves), and record quantities to three decimals. On
+receives, any line worth more than ৳1 crore is rejected — recheck
+quantity and price.
 
 | Kind | Page | Meaning |
 |---|---|---|

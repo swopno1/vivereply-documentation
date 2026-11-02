@@ -17,7 +17,16 @@ on which record. Read-only, filterable by action, actor, date, and record
 (filters live in the URL, so a filtered view is shareable). Paginated —
 the log is append-only and grows forever.
 
-**Permission:** AUDIT.view (owner, auditor), behind the auditLog module.
+Two sources sit behind tabs at the top: **Actions in the admin** (people
+and jobs) and **Payment gateway events**. Each tab has its own dropdown —
+module on Actions, gateway provider on Payments — plus actor,
+a contains-search on the action/event name, and record id. One search
+covers **up to 366 days**; the **Download CSV** button exports the
+current filters (up to 10,000 rows). Click any row to expand it: IP
+address, device, and the full metadata.
+
+**Permission:** AUDIT.view (owner, auditor), behind the auditLog module;
+the CSV download needs AUDIT.export (both have it).
 Nobody edits the audit log — not even owners. That's the whole point.
 
 ## 2. What it's for

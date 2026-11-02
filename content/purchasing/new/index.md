@@ -16,9 +16,10 @@ A PO form: supplier (active suppliers only), expected date, and up to 50
 lines — each an inventory item, quantity, and unit price. The total
 updates as you build; the ceiling is ৳2 crore.
 
-**Starting from low stock:** the inventory low-stock list links here with
-`?item=` — the form opens with that item preselected, so the reorder loop
-is one click: flag → draft → approve → receive.
+**Starting from low stock:** the form accepts a `?item=` parameter that
+opens it with that item preselected (hand-build the URL — the low-stock
+list doesn't link here yet). The reorder loop stays: flag → draft →
+approve → receive.
 
 ## 2. Drafting discipline
 

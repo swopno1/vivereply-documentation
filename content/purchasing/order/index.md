@@ -15,13 +15,16 @@ edit it within the rules.
 The order's full picture: number, status, supplier, dates, lines (ordered
 vs received per line), totals, and history. From here:
 
-- **Edit** (`/admin/purchasing/[id]/edit`) — while it's still DRAFT (or
-  per policy before approval). After approval, the order is a commitment:
+- **Edit** (`/admin/purchasing/[id]/edit`) — DRAFT only; anything past
+  draft redirects back here. After approval, the order is a commitment:
   changes go through cancellation + a new order, not silent edits.
 - **Approve** — SUBMITTED → APPROVED. The approver is someone other than
-  the drafter, same separation-of-duties pattern as everywhere else.
+  the drafter (unless the drafter is the owner), same
+  separation-of-duties pattern as everywhere else.
+- **Send back** — the reviewer can return a SUBMITTED order to DRAFT
+  with a required note, for the drafter to fix and resubmit.
 - **Receive** (`/admin/purchasing/[id]/receive`) — goods arriving. Only
-  against APPROVED or PARTIALLY_RECEIVED orders.
+  against APPROVED or PARTIALLY_RECEIVED orders; needs PURCHASE edit.
 
 ## 2. Receiving — the critical step
 
@@ -42,7 +45,9 @@ received, not what was ordered.
 ## 3. Closing and cancelling
 
 - **RECEIVED** — everything arrived. The order is complete.
-- **CLOSED** — filed and done.
+- **CLOSED** — filed and done. A PARTIALLY_RECEIVED order whose remainder
+  will never arrive is closed short by an approver: it ends with what was
+  received ("The rest will never arrive").
 - **CANCELLED** — for orders that will never complete (supplier can't
   deliver, duplicate order). Cancelling frees the supplier/item from the
   open-order block.
@@ -52,5 +57,5 @@ received, not what was ordered.
 | Symptom | Check first |
 |---|---|
 | Receive button missing | The order must be APPROVED — DRAFT and SUBMITTED can't receive. |
-| Line shows outstanding forever | The supplier short-delivered and won't complete — cancel the order or the remainder. |
+| Line shows outstanding forever | The supplier short-delivered and won't complete — an approver closes the order short (or cancel it if nothing arrived). |
 | Received quantity wrong | This is an inventory correction now — adjust via the stock count flow, with a note. |

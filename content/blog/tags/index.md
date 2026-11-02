@@ -15,9 +15,9 @@ category clutter.
 Where a category is the shelf, **tags are the threads** tying posts
 together across shelves: a post in *Destinations* tagged *hiking* sits
 beside a post in *Guides* tagged *hiking*. Guests clicking a tag discover
-related posts they'd never have browsed to. Tags carry the same fields as
-categories: name, Bengali name, slug, description, display order, active
-flag, post count.
+related posts they'd never have browsed to. Tags carry just a name,
+Bengali name, and slug (plus a live post count) — no description,
+display order, or active flag.
 
 **Permission:** managing taxonomy needs the edit permission.
 
@@ -34,5 +34,5 @@ flag, post count.
 
 | Symptom | Check first |
 |---|---|
-| Near-duplicate tags | Merge by deactivating the weaker one and retagging its posts. |
+| Near-duplicate tags | Pick the winner, retag the loser's posts, and delete the loser — tags have no active flag to deactivate. |
 | Tag with one post | Probably too specific — consider folding it into a broader tag. |

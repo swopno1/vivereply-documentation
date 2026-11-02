@@ -44,14 +44,14 @@ drafts are held.
 
 *Guest: "How much for the Terracotta Villa?"*
 
-`get_quote` computes the exact total from the room's live nightly rate ×
-nights. The guest sees a **quote card**: room, dates, rate × nights, total
-(e.g. ৳14,500 × 2 = ৳29,000).
+`get_quote` computes the total from the catalogue's price × nights,
+checked against **live** availability. The guest sees a **quote card**:
+room, dates, rate × nights, total (e.g. ৳14,500 × 2 = ৳29,000).
 
-The number the Chatbot quotes is the number the folio will carry — same
-engine, same source. **If a guest quotes a chat price at the desk, honor
-it.** If it was wrong, the room price changed mid-conversation — that's a
-data issue, not a guest issue.
+The quote and the folio total come from two sources that are expected to
+agree — a mismatch surfaces as a warning, never hidden. **If a guest
+quotes a chat price at the desk, honor it.** If it disagrees with the
+Suite's price, that's a catalogue-sync issue, not a guest issue.
 
 ### Draft — "Hold it for me."
 
@@ -109,7 +109,7 @@ summarizes, saves the full transcript, and the conversation lands in the
 
 | Symptom | Check first |
 |---|---|
-| Guest says the chat quoted a wrong price | The room's price per night — did it change? The quote was live at the time. |
+| Guest says the chat quoted a wrong price | Compare the Chatbot catalogue price with the Suite's — the quote came from the catalogue snapshot, not the live Suite price. |
 | Draft exists but guest never paid | Normal — drafts are holds. Follow up like any pending reservation. |
 | Guest couldn't verify their booking | They need the booking code from their confirmation — resend it from the booking detail. |
 | Chat answered in the wrong language | Short messages ("hi") may not carry enough signal — the guest just continues in their language. |

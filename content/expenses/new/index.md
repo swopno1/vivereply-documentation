@@ -42,5 +42,5 @@ After this module you can enter an expense so it sails through approval.
 | Symptom | Check first |
 |---|---|
 | Submitted but nothing happened | It's in "Waiting for approval" — a manager approves it. That's the workflow. |
-| Wrong category after submitting | Edit it (detail page) before approval — after approval, ask a manager. |
+| Wrong category after submitting | Edit it (detail page) while it's still waiting — after approval nobody can edit, manager included. |
 | Paid from the cash drawer? | Expenses never touch cash shifts — record the payment method (Cash) on the expense instead. |

@@ -16,13 +16,15 @@ The PETTY_CASH ledger account: its **balance**, the last 20 counts, the
 last 20 journal lines touching it, and the last 10 **transfers** between
 money accounts.
 
-## 2. Counts — the familiar blind pattern
+## 2. Counts — the familiar count-and-approve pattern
 
 Same honesty mechanism as cash shifts and stock counts: **count what's in
-the tin without seeing the book balance**. Counting needs the create
+the tin, then compare against the book**. Unlike those counts this one
+isn't strictly blind — the balance shows at the top of the page — so
+count the tin first and read the screen second. Counting needs the create
 permission; **approving a difference needs approve** — and as always, you
-can't approve your own count. Approved differences post as journal entries
-(source PETTY_CASH_COUNT).
+can't approve your own count (unless you are the owner). Approved
+differences post as journal entries (source PETTY_CASH_COUNT).
 
 ## 3. Transfers
 
@@ -35,6 +37,6 @@ the audit trail.
 
 | Symptom | Check first |
 |---|---|
-| Count difference won't approve | You counted it — someone else approves. That's the rule. |
+| Count difference won't approve | You counted it — someone else approves (unless you're the owner). That's the rule. |
 | Balance doesn't match the tin | Unapproved counts and unposted transfers — clear the queues first. |
 | Transfer missing a side | Impossible by construction — every transfer is double-entry. Report it as a bug. |

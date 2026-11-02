@@ -33,7 +33,7 @@ For the things operations don't post themselves: opening balances,
 corrections, accruals. Create needs the create permission
 (`/admin/finance/journals/new`); the journal enters as SUBMITTED and waits.
 **Approving posts it to the books.** Like every approval in this system,
-you can't approve your own.
+you can't approve your own — unless you are the owner.
 
 ## 3. Reversals — how corrections work
 
@@ -47,5 +47,5 @@ is non-negotiable accounting discipline, and the system enforces it.
 | Symptom | Check first |
 |---|---|
 | Entry won't edit | Correct — posted entries are never edited. Post a reversal. |
-| Journal stuck in waiting | It needs approval from someone other than the creator. |
+| Journal stuck in waiting | It needs approval from someone other than the creator (unless the creator is the owner). |
 | Numbers don't reconcile | Check for unposted records and reversed entries in the list. |

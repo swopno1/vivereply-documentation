@@ -12,17 +12,20 @@ gated the way they are.
 
 ## 1. What the tab is
 
-One switch per module: frontDesk, housekeeping, roomService, inventory,
-expenses, accounting, blog, rooms, and more. A disabled module's nav item
-vanishes and its pages show the gate — the property runs without that
-department's screens.
+One switch per module: frontDesk, rooms, housekeeping, roomService,
+inventory, purchase, expenses, finance, accounting, hr, payroll,
+reports, ownerDashboard, auditLog — fourteen switches, all live. (There
+is no blog switch; the blog is not behind a flag.) A disabled module's
+nav item vanishes and its pages show the gate — the property runs
+without that department's screens.
 
 ## 2. The one critical exception
 
 **Disabling a module never breaks guests' money.** The gateway payment
-admin (BanglaQR queue, refunds, status checks) keeps working even with the
-finance flag off — payments must never depend on a feature flag. The flag
-gates only the new finance screens.
+admin (BanglaQR queue, refunds, status checks) has no flag at all — it
+keeps working even with the accounting and finance flags off. (The new
+finance screens are gated by the *accounting* flag; *finance* is a
+separate flag for the supplier-bills side.)
 
 ## 3. When to touch it
 

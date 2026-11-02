@@ -19,10 +19,11 @@ permission.
 
 ## 2. The monthly view
 
-`/admin/hr/attendance/month` aggregates the month: who was present,
-absent, or on leave each day. Payroll reads attendance — an unmarked day
-is a payroll question, so **mark every day, every day**. End-of-day
-marking is the discipline; catching up a week later is reconstruction.
+`/admin/hr/attendance/month` aggregates the month into per-person count
+totals: present, absent, half days, days off, leave, not marked — not
+per-day records. Payroll reads attendance — an unmarked day is a payroll
+question, so **mark every day, every day**. End-of-day marking is the
+discipline; catching up a week later is reconstruction.
 
 ## 3. Troubleshooting
 

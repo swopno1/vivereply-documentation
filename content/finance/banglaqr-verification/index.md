@@ -15,9 +15,10 @@ correctly — and you know where it lives now.
 
 The queue moved off the sidebar into **Finance → Waiting for approval**
 (founder decision, 2026-10-30): it's a finance task, not a department.
-The page URL is unchanged, and it's still reachable from the night-audit
-checklist banner, the daily sheet's owner summary, and the booking
-detail's verify controls.
+The page URL is unchanged. Reach it from **Finance → Waiting for
+approval**, the **payments index**, or the booking detail's verify
+controls. (The night-audit checklist and the daily sheet's owner summary
+flag the pending count as plain text — they don't link here.)
 
 **Permission:** FINANCE approve (manager+). Guests' payments must never
 wait on someone without authority.
@@ -35,13 +36,20 @@ Open the receipt. Compare: amount matches the booking total, the receipt
 looks genuine, the reference is sane. Then:
 
 - **Confirm** → the payment is accepted and the booking confirms. The
-  guest gets their confirmation.
+  guest gets their confirmation. Confirm stays disabled while the
+  amounts differ ("Amounts differ: do not confirm") — never confirm a
+  mismatched payment.
 - **Reject** → with a reason (sent to the guest). The booking goes back
   for payment.
+- **Request new receipt** → asks the guest (with a re-upload link) for a
+  better receipt when the upload is unreadable or wrong.
 
 **Also available:** confirm-without-receipt (owner, with a written
-reason — for the genuine edge cases) and delete-receipt (owner, with a
-reason — a bad upload, not a bad payment).
+reason — for the genuine edge cases), delete-receipt (owner, with a
+reason — a bad upload, not a bad payment), and **Release expired unpaid
+bookings** (an owner tool on the queue page: releases PENDING bookings
+with no receipt after the payment window, the same as the auto-release
+job).
 
 ## 4. Speed matters
 
@@ -56,5 +64,5 @@ flags means it's important.
 |---|---|
 | Queue empty but guest says they paid | They may have paid via a different gateway — check the booking's payment transactions. |
 | Receipt won't load | Ask the guest to re-upload (the re-upload page exists for this). |
-| Can't confirm | You need FINANCE approve — a manager task. |
+| Can't confirm | Amounts must match first — or you need FINANCE approve (a manager task). |
 | Expired holds | The release-expired job handles them; check the booking status. |

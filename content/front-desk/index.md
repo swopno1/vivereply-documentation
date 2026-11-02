@@ -155,7 +155,7 @@ check-out date. **What to do:**
 | **Confirmed** (green) | Paid/approved, arriving | Prep the arrival (room, requests) |
 | **Checked-in** (blue) | In the building | Normal operations |
 | **Completed** (grey) | Stay finished | Historical |
-| **No-show** (orange) | Never arrived | Charge per policy, close the booking |
+| **No-show** (orange) | Never arrived — never appears on this page (dashboard/daily-sheet only) | Close the booking from the booking record, per policy |
 
 ---
 

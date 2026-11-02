@@ -33,7 +33,7 @@ still show what was actually ordered.
 
 The kitchen's real-time lever: when the last portion goes, **mark sold
 out** immediately — the ordering page blocks it and front desk stops
-promising it. When it's back, **mark available**. A stale sold-out flag
+promising it. When it's back, hit **Back on the menu**. A stale sold-out flag
 loses sales; a missing one creates angry guests. Treat it like the room
 board: the flag is the truth.
 

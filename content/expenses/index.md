@@ -29,8 +29,8 @@ Cash; the drawer is untouched.
 ## 2. The page layout
 
 **Waiting for approval** comes first — every SUBMITTED expense across all
-time, oldest first. This is the manager's queue; as a submitter, this is
-where you watch yours.
+time (up to 200 shown), oldest first. This is the manager's queue; as a
+submitter, this is where you watch yours.
 
 Then **one month at a time** (`?month=YYYY-MM`, defaulting to the business
 month), with a previous/next navigator:
@@ -49,7 +49,8 @@ permission).
 
 ## 3. The approval workflow
 
-Every expense is **approved by someone else** — the system's core rule:
+Every expense is **approved by someone else** — the system's core rule
+(the owner excepted):
 
 | Status | Meaning |
 |---|---|
@@ -62,9 +63,10 @@ who entered it and when, who last changed it, and the review line.
 
 - **Approve / Reject** (manager). Rejecting **requires a note** — the
   submitter needs to know what to fix.
-- **You cannot approve your own.** *"You entered or last changed this
-  expense, so someone else approves it."* If you entered it, the approve
-  button isn't yours — find another manager or the owner.
+- **You cannot approve your own — unless you are the owner.** *"You
+  entered or last changed this expense, so someone else approves it."*
+  If you entered it, the approve button isn't yours — find another
+  manager or the owner.
 
 Expenses awaiting approval also surface in the **daily sheet's owner
 summary** — they don't sit invisible.
@@ -80,7 +82,7 @@ Use it in the monthly review, not just at year-end.
 
 | Symptom | Check first |
 |---|---|
-| Can't approve an expense | You entered or last changed it — someone else must approve. |
+| Can't approve an expense | You entered or last changed it — someone else must approve (unless you're the owner). |
 | Expense missing from the month | Check the month navigator — it may be in a different month, or still in the approval queue. |
 | "Not taken from a cash drawer" | Correct — expenses never touch cash shifts. Record the payment method instead. |
-| Rejected expense | Read the reviewer's note, fix, and resubmit — don't re-enter as new. |
+| Rejected expense | Read the reviewer's note — a rejected expense can't be edited or resubmitted, so re-enter it as new. |

@@ -21,24 +21,32 @@ Guest stories arrive here automatically from the website's story form.
 Staff posts land here when the property requires approval (or when the
 writer submitted for review instead of publishing).
 
-**Permission:** reviewing needs the approve permission. Writers see their
-own submissions' status; they can't approve them.
+**Permission:** reviewing needs the approve permission (owners and
+managers). Staff and front-desk roles can't open the queue at all.
 
 ## 2. Reviewing a post
 
 Open it (preview first — always), then:
 
-- **Approve** → PUBLISHED. It goes live immediately, or on its scheduled
-  date. For guest stories, the author gets the confirmation email
-  (*"we'll email you when your story is published"*).
+- **Approve** → PUBLISHED. It goes live immediately — approval resets
+  even a future scheduled date to now. For guest stories, the author gets
+  the confirmation email (*"we'll email you when your story is
+  published"*).
 - **Reject** → REJECTED, with a reason (the reject dialog requires one).
   For guest authors, write the reason kindly and specifically — *"lovely
   photos, but the post needs more of your own experience and fewer
   generalities"* gives them something to work with.
 
+Each row's **Review** button opens the submission's detail page
+(`/admin/blog/pending/[id]`): the full post, author details, spam-filter
+flags, and history — plus **Approve with edits**, **Archive** from the
+queue (the author is not notified), and an **internal note** (never shown
+to the author) for the next reviewer.
+
 **What to check:** the guest guidelines are the bar — own trip and honest
-impressions, \{min}–\{max} characters, \{minImages}–\{maxImages} own photos
-with descriptions, no advertising/affiliate links/copied text. Light
+impressions, 300–10,000 characters, 1–3 own photos
+with descriptions (the defaults — the [settings](../settings/) may change
+them), no advertising/affiliate links/copied text. Light
 editing for clarity is allowed and expected; heavy rewriting means it
 should have been rejected with guidance instead.
 
@@ -54,4 +62,4 @@ Oldest first is the rule; the list is already sorted that way.
 |---|---|
 | Can't approve | You need the approve permission — writers can't approve their own. |
 | Flag reason on a post | Read it before anything else — it's why the post needs a closer look. |
-| Approved but not live | Check for a scheduled publish date in the future. |
+| Approved but not live | Approval always goes live immediately — check the post actually left PENDING; if it did and still isn't live, report it. |

@@ -32,8 +32,9 @@ explain what happens at each step, and troubleshoot a stuck booking.
      [verification queue](../../finance/banglaqr-verification/). If the
      receipt upload fails, the **reupload page**
      (`/payment/banglaqr/reupload`) lets them try again.
-   - **Pay at property** — no online payment; the booking is confirmed
-     with payment due at check-in.
+   - **Pay at property** — no online payment; the booking enters
+     **PENDING_MANUAL_VERIFICATION** for desk verification, with payment
+     due at check-in.
 5. **Confirmation** (`/booking/confirmation/[id]`) — the booking code
    (e.g. RES-202610-00003), dates, room, guest, and amount. **This page is
    never indexed** (noindex) — booking details don't belong in search
@@ -55,8 +56,9 @@ inert.** Never confuse a demo payment with a real one.
 - **The booking code is the key.** Guests should keep it; staff should ask
   for it. It's also what the [chatbot](../../concierge-handoffs/)
   verifies against.
-- **Failed payments don't create bookings.** If the guest paid but has no
-  confirmation, check the gateway result and the booking's payment
+- **A failed payment still leaves a booking.** The booking is created as
+  PENDING at the end of step 2, before payment. If the guest paid but has
+  no confirmation, check the gateway result and the booking's payment
   transactions before promising anything — and never promise a refund
   verbally; follow the [refund flow](../../bookings/detail/).
 

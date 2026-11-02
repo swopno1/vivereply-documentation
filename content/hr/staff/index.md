@@ -12,7 +12,7 @@ payroll depends on.
 
 ## 1. What the page is
 
-Every employee: **code** (e.g. EMP-001), name (English + Bengali),
+Every employee: **code** (e.g. EMP-0007), name (English + Bengali),
 **department**, designation, **join date**, left date, status, and
 **monthly salary**. Sorted by status then code; exportable (CSV) with the
 export permission.
@@ -24,8 +24,10 @@ export permission.
 - **Left date ends everything.** When someone leaves, set the left date
   *that day*. A missing left date keeps them on headcount, in attendance,
   and in the next payroll run.
-- **Salary changes are dated.** A raise takes effect from a date; the
-  payroll run prorates by it. Enter the change before the run, not after.
+- **Salary changes are snapshots.** A record holds one monthly salary —
+  no dates, no proration. The payroll run takes whatever salary is on
+  the record when it's built, so enter the change before the run, not
+  after.
 - **Codes are permanent.** Never reuse a departed employee's code.
 
 ## 3. Troubleshooting

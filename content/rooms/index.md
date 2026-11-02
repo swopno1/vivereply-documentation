@@ -26,6 +26,7 @@ housekeeping state. Bookings hold a room type; at check-in they get a unit.
 | Page | Docs | What it's for |
 |---|---|---|
 | `/admin/rooms/[id]` (and `/admin/rooms/new`) | [Room Edit](edit/) | Creating and editing room types and their units |
+| `/admin/rooms/rates` (linked from the rooms page header) | — | Seasonal rates, promo codes, and deposit settings |
 
 **Note:** there is no read-only room page — opening a room means editing
 it (ROOMS.edit permission; ROOMS.create for new).

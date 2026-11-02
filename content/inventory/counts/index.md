@@ -44,7 +44,7 @@ Approval needs a **reason** (required) — it becomes the audit record.
 **Two integrity rules:**
 
 1. **You can't approve your own count.** *"Another manager or the owner
-   does."* Separation of duties, no exceptions.
+   does."* Separation of duties — the owner excepted.
 2. Counts awaiting approval appear in the **daily sheet's owner summary** —
    they don't sit invisible.
 

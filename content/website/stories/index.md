@@ -23,12 +23,15 @@ rejected posts never reach the public site.
 
 **`/blog/submit`** — guests write their own story: title, text, photos.
 It lands in the [moderation queue](../../blog/pending/) as a PENDING
-post (source: guest), and the guest gets a confirmation email — and
-another if their story is published. **`/blog/submit/success`** confirms
-the submission went through.
+post (source: guest) — unless guest moderation is switched off, in
+which case it publishes immediately — and the guest gets a confirmation
+email (when guest confirmations are enabled) — and another if their
+story is published. **`/blog/submit/success`** confirms the submission
+went through.
 
-**`/share-your-stay`** — the invitation page: prompts and inspiration
-that send guests to the submit form.
+**`/share-your-stay`** — the external-reviews page: links that send
+guests to review the property on Google, Facebook, and Tripadvisor —
+not to the story submit form.
 
 **Your role:** when a guest had a wonderful stay, mention it at checkout
 — *"we'd love your story on our blog."* Guest stories are the most
@@ -40,5 +43,5 @@ human on the other side: a rejected story still deserves its reason.
 | Symptom | Check first |
 |---|---|
 | Published post not on the site | Is it actually PUBLISHED (not SCHEDULED for the future)? Check the site cache. |
-| Guest says their story vanished | It's in the moderation queue — PENDING, not lost. |
+| Guest says their story vanished | With moderation on, it's in the queue — PENDING, not lost. With moderation off, stories publish immediately, so check the live list instead. |
 | Wrong category on a post | Fix it in the [post editor](../../blog/edit/) — the site reads the same record. |

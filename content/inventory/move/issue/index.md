@@ -12,9 +12,9 @@ the cost books.
 
 ## 1. The flow
 
-1. Add a line per item: choose the item, enter the **quantity**, and pick
-   the **receiving department** — Kitchen, Housekeeping, Front desk,
-   Maintenance, or Other.
+1. Add a line per item: choose the item and enter the **quantity**. Then
+   pick the one **receiving department** for the whole movement —
+   Kitchen, Housekeeping, Front desk, Maintenance, or Other.
 2. **Add another item** as needed, review, **Save** — *"Saved. Stock
    updated."*
 

@@ -25,8 +25,9 @@ These hold everywhere. Any code or process that breaks one is a bug.
    no float money math. Source: `src/lib/money*.ts`, `paymentAmountFields()`.
 3. **Timestamps are UTC instants; interpretation is property-local.** The
    database stores instants. "Today", "this month", and day boundaries are
-   always computed in the property time zone. Helpers: `businessDate()`,
-   `calendarDate()`, `zonedParts()` (`src/lib/timezone.ts`).
+   always computed in the property time zone. Helpers: `businessDate()`
+   (often aliased as `calendarDate` at call sites), `zonedParts()`
+   (`src/lib/timezone.ts`).
 4. **Revenue shown anywhere = cash collected.** Money *arrived* minus
    *completed refunds*. Never earned revenue, never pipeline value. Source:
    `collected()` in `src/lib/dashboard/metrics.ts`; full definition in
@@ -154,9 +155,11 @@ window → subtracted in `collected()`. Desk refunds → folio.
 ### 3.7 Settings → behavior (verified)
 
 `Settings → General` (timezone, contact email/phone, fees) feeds:
-business-day computation, dashboard header, audit timing, and guest-facing
-contact details. Timezone changes take effect on the next computation — no
-redeploy needed.
+business-day computation, dashboard header, audit timing, and the
+contact-form lead-alert recipient. The guest-facing contact info grid
+and location address come from hardcoded demo data
+(`@/demo/swiss/data`), not settings. Timezone changes take effect on
+the next computation — no redeploy needed.
 
 ### 3.8 Daily sheet (verified)
 
@@ -253,18 +256,18 @@ and flag the night-audit checklist; kitchen roles see dishes, not prices
 
 ### 3.13 Chatbot handoffs (Concierge build, verified)
 
-**Path:** server component reads `CONCIERGE_BRIDGE_KEY` (never reaches the
-browser) → mints a fresh 15-minute embed token per page load
-(`POST /api/bridge/embed-tokens`, bridge-key auth, bound to the dashboard
-origin) → renders the Concierge staff iframe (`/staff/embed`).
+**Path:** `/admin/concierge-handoffs` redirects to `/admin/chatbot-admin`
+— a native handoff board (queue tabs, transcript, notes, assign,
+close/reopen) over the Chatbot bridge API. The bridge key is read on
+the server and never reaches the browser; all calls carry it as a Bearer [REDACTED]
+token (`src/lib/chatbot/bridge.ts`).
 
-**Deliberate non-design:** no custom handoffs UI over the bridge API — the
-widget is the manage path (list/filter, transcript, notes, assign,
-close/reopen). Expired token → refresh the page, never a key prompt.
+**Key setup:** mint a token in Chatbot Settings → Bridge keys, then
+paste it in Settings → Chatbot (stored encrypted, no redeploy) or set
+`CONCIERGE_BRIDGE_KEY` env (env takes precedence).
 
-**Setup states:** no key → 3-step setup notice (mint in Concierge Settings
-→ Bridge keys, set env, redeploy); bad origin → origin notice; token
-failure → check key active, refresh.
+**Setup states:** no key → "not connected" setup notice; revoked key or
+unreachable Chatbot app → "did not respond" notice + refresh.
 
 ### 3.14 Inventory (verified)
 
@@ -435,7 +438,9 @@ explore-the-area, dining, amenities, gallery, offers, about, how-to-reach,
 location, faq, reviews, press-kit; policies: terms, privacy,
 refund-policy. Public blog (`/blog`, category/tag, `[slug]`) reads the
 same published posts as the admin blog; `/blog/submit` → PENDING guest
-posts in the moderation queue; `/share-your-stay` invites stories.
+posts in the moderation queue (published immediately when
+guest-moderation is off); `/share-your-stay` links out to external
+review platforms (Google/Facebook/Tripadvisor), not the submit form.
 
 ### 3.22 ViveReply Chatbot — Concierge build (verified behavior, separate codebase — read-only)
 
@@ -448,11 +453,13 @@ lookup_booking_by_code, request_booking_details, request_handoff.
 Guardrails: retraction guard (EN+BN); staged verification (code → dates +
 first name + status; full details only to the stored email). Widget:
 iframe via widget.js (sync embed). Tenant binding: per-tenant
-ApprovedDomain rows (ACTIVE required or error panel); catalogue maps
-`suiteRoomIds` positionally to Suite rooms. Staff side:
-`/admin/concierge-handoffs` (FRONT_DESK.view) — server-minted 15-min
-embed tokens via `POST /api/bridge/embed-tokens`; bridge key server-only
-(minted in Concierge Settings → Bridge keys, shown once). Framing:
+ApprovedDomain rows (active switch required or error panel); catalogue maps
+rooms explicitly — each entry carries its own `suiteRoomId` UUID, order
+irrelevant. Staff side:
+`/admin/chatbot-admin` (FRONT_DESK.view; `/admin/concierge-handoffs`
+redirects there) — a native board over the bridge API with a server-only
+Bearer [REDACTED] (minted in Chatbot Settings → Bridge keys, shown once).
+Framing:
 "front-desk agent", never an MCP.
 
 ## 4. Reconciliation map

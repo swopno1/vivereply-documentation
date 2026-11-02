@@ -28,11 +28,12 @@ signup — by design). Owners get a login for their property.
 ## 2. Approved domains
 
 The widget only runs on **approved domains**. Each tenant has
-`ApprovedDomain` rows — the property's website domain must have an
-**ACTIVE** row, or the widget shows an error panel instead of the chat.
+`ApprovedDomain` rows — the property's website domain must have a row
+with **active** switched on, or the widget shows an error panel instead
+of the chat.
 
 This is the most common setup failure: *everything is configured, but the
-domain row is missing or not ACTIVE.* There is no Suite-side fix — the row
+domain row is missing or not active.* There is no Suite-side fix — the row
 must exist in the Chatbot's database.
 
 **Check:** open your website. If you see an error panel instead of the chat
@@ -40,13 +41,14 @@ button, the domain isn't approved. Contact support with your domain.
 
 ## 3. The catalogue
 
-The Chatbot maps its room list to the Suite's room types (`suiteRoomIds`).
-**Order matters** — the mapping is positional, so the rooms must be listed
-in the same order on both sides. If the mapping is wrong, the Chatbot quotes
-the wrong room's price with full confidence.
+The Chatbot maps its room list to the Suite's room types explicitly:
+each catalogue entry carries its own `suiteRoomId` (the Suite room's
+UUID), looked up by slug. If an entry points at the wrong UUID, the
+Chatbot quotes the wrong room's price with full confidence.
 
-**Verify the mapping** whenever rooms are added, removed, or reordered. This
-is a five-minute check that prevents the most embarrassing failure mode.
+**Verify the mapping** whenever rooms are added or removed — order doesn't
+matter. This is a five-minute check that prevents the most embarrassing
+failure mode.
 
 ## 4. The contract (spec v1)
 
@@ -65,7 +67,9 @@ own dashboard, mint a bridge key:
 
 1. In the Chatbot app: **Settings → Bridge keys** → mint, named e.g.
    `demo1 dashboard`. Copy the secret immediately — it's shown once.
-2. In your Suite hosting: set `CONCIERGE_BRIDGE_KEY` and redeploy.
+2. In your Suite admin: paste it into **Settings → Chatbot** (stored
+   encrypted, no redeploy needed) — or set `CONCIERGE_BRIDGE_KEY` in your
+   hosting environment, which takes precedence.
 3. Open **/admin/chatbot-admin** — the queue loads.
 
 Full reference: [Bridge API](../bridge-api). Staff workflow:
@@ -74,8 +78,8 @@ Full reference: [Bridge API](../bridge-api). Staff workflow:
 ## 6. Connection checklist
 
 1. Tenant created and bound to the property's Suite.
-2. **ACTIVE** `ApprovedDomain` row for the website's domain.
-3. Catalogue mapped and order-verified against the Suite's rooms.
+2. `ApprovedDomain` row with **active** on for the website's domain.
+3. Catalogue mapped — each entry's `suiteRoomId` verified against the Suite's rooms.
 4. Ping answers `{"ok":true,"suiteVersion":1}`.
 5. Bridge key minted (for [staff handoff](../staff-handoff)).
 
@@ -83,8 +87,8 @@ Full reference: [Bridge API](../bridge-api). Staff workflow:
 
 | Symptom | Check first |
 |---|---|
-| Widget error panel | The ApprovedDomain row — missing or not ACTIVE. No Suite-side fix exists. |
-| Wrong room quoted | The catalogue mapping order — verify against the Suite's room list. |
+| Widget error panel | The ApprovedDomain row — missing or not active. No Suite-side fix exists. |
+| Wrong room quoted | The catalogue's `suiteRoomId` mapping — verify each entry points at the right Suite room. |
 | Ping fails | The Suite's ping route or the deployment — the property isn't connected. |
 | Auth to the Chatbot admin fails | The session secret must be set — without it, login fails *and* chat closes. |
 | Bridge API 401 | Key revoked — mint a new one in Settings → Bridge keys. |

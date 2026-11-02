@@ -11,14 +11,16 @@ After this module you know what the tax tab configures and its limits.
 
 ## 1. What it is
 
-How the property handles tax on its charges: rates, what's taxable, and
-how tax appears on folios and reports. For this property, pricing is
-**tax-inclusive by design** — the rate guests see is the rate they pay,
-with no tax added at checkout.
+Three fields: the **VAT rate**, the **SD rate**, and the property's
+**BIN**. That is the whole tab — there is no taxable-scope or
+presentation config. Room rates are **tax-exclusive**: VAT and SD are
+added on top at booking time and itemized on the folio and invoice.
+(Only staff-entered and PMS totals are treated as tax-inclusive — the
+system backs the tax heads out of those.)
 
 ## 2. Limits
 
-This tab configures **how tax is presented and reported**, not tax advice.
+This tab records the **rates and BIN**, not tax advice.
 Rates, filings, and compliance are the accountant's job — the system
 records what it's told. If the property's tax situation changes, the
 accountant says what, and this tab records it.

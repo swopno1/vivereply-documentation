@@ -20,8 +20,9 @@ Get it right, digit by digit.
 
 ### Stay
 
-Room type (active rooms with per-night price and max guests shown),
-check-in and check-out dates, **guest count**, and the **total amount**.
+Room type (active rooms, shown by title only — check price and max
+guests on the room record), check-in and check-out dates, **guest
+count**, and the **total amount**.
 The total is computed from the stay — if you override it, you're making a
 pricing decision; be ready to justify it.
 
@@ -34,9 +35,11 @@ pricing decision; be ready to justify it.
   pull if the payment is ever disputed.
 
 **Honesty rule:** mark PAID only when the money is actually in hand (or
-confirmed by the gateway). A PARTIAL booking with the real received amount
-is always better than a PAID booking built on hope — the folio and the
-money-due list both trust this field.
+confirmed by the gateway). The form has no received-amount field: PARTIAL
+posts nothing to the folio, so record any part-payment afterwards on the
+folio — until then the folio still shows the full amount due. A truthful
+PARTIAL is always better than a PAID booking built on hope — the folio
+and the money-due list both trust this field.
 
 ### Details
 
@@ -46,8 +49,8 @@ Walk-in. **Notes** — anything the next shift should know.
 
 ## 2. After saving
 
-The booking appears in the directory (usually as PENDING or CONFIRMED
-depending on your flow) with its code (e.g. RES-202610-00003). The guest
+The booking appears in the directory as CONFIRMED with its code (e.g.
+RES-202610-00003) — desk bookings are always confirmed on save. The guest
 can now be checked in from the front-desk page when they arrive.
 
 ## 3. Troubleshooting
@@ -57,3 +60,4 @@ can now be checked in from the front-desk page when they arrive.
 | Room not in the dropdown | Only active rooms show — check the room is active. |
 | Guest count rejected | It can't exceed the room's max guests. |
 | Payment marked PAID but money missing | Fix the status to PARTIAL/UNPAID immediately — the folio trusts this field. |
+| PAID + Cash booking refused | Cash needs an open cash shift — without one the whole booking is refused and nothing is saved. Open your shift first, then re-enter. |

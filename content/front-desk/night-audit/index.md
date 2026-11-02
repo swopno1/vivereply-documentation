@@ -43,7 +43,9 @@ because the checklist explains what the night auditor will ask you for.
 ## 2. Before the close — the checklist
 
 The page walks you through every loose end, in order. Work them top to
-bottom; the Close button stays disabled until they're resolved.
+bottom; the Close button stays disabled until the day is over and every
+arrival is decided — everything else on the checklist (overstays,
+verifications, open orders/shifts, dirty rooms) is a non-blocking warning.
 
 ### 2.1 Arrivals that didn't check in
 

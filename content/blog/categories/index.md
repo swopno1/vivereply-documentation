@@ -28,13 +28,13 @@ showing how many posts sit on the shelf.
 - **Display order** is the shelf arrangement on the site — put the most
   useful first.
 - **Deactivate, don't delete**, when a category falls out of use: its
-  posts keep their history, and old links don't break. (Tags work the
-  same — see [Tags](../tags/).)
+  posts keep their history, and old links don't break. (Tags have no
+  active flag — retag and delete instead; see [Tags](../tags/).)
 - **Bengali names** matter: fill them; many guests browse in Bengali.
 
 ## 3. Troubleshooting
 
 | Symptom | Check first |
 |---|---|
-| Category missing from the editor | It's inactive — reactivate it, or pick the replacement. |
+| Category missing from the guest form | It's inactive — reactivate it, or pick the replacement. (The staff editor lists every category, active or not.) |
 | "Uncategorized" posts piling up | Writers are skipping the field — make category selection part of the publishing checklist. |

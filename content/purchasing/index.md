@@ -34,10 +34,14 @@ expected date, total, line count.
 **block** archiving their supplier or items — the system won't let you
 delete a supplier mid-order.
 
+A reviewer can also **send the order back**: SUBMITTED → DRAFT with a
+required note ("Sent back: \{note}"), for the drafter to fix and resubmit.
+
 **Receiving** happens only against APPROVED or PARTIALLY_RECEIVED orders,
-and each receipt posts the goods into inventory (the [stock receive
-flow](../inventory/move/receive/)). The PO and the inventory receipt are
-two sides of the same event — they must agree.
+on the order's own receive page (`/admin/purchasing/[id]/receive` — see
+[Order Detail](order/)), and each receipt posts the goods into inventory
+directly. The PO and the inventory receipt are two sides of the same
+event — they must agree.
 
 ## 3. The sub-pages
 

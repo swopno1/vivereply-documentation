@@ -48,8 +48,9 @@ accountant.
 - **Owed to suppliers** — accounts payable, with **overdue** highlighted
   in red.
 - **Waiting for approval** — the queues: manual journals, supplier
-  payments, petty cash counts, and **BanglaQR verifications** (the
-  verification queue now lives here — see [its page](banglaqr-verification/)).
+  payments, petty cash counts, **BanglaQR verifications** (the
+  verification queue now lives here — see [its page](banglaqr-verification/)),
+  and **Stripe disputes awaiting response**.
 - **Records waiting to be posted** — auto-postings not yet in the books,
   with **Post now**.
 
@@ -70,8 +71,10 @@ accountant.
 Viewing needs FINANCE.view. Creating (journals, bills, payments, counts)
 needs create. **Approving** differences and journals needs approve.
 **Closing months** needs approve; **reopening** needs edit (owner).
-Deleting/overriding is owner-only. Money truth is guarded in layers —
-that's the point.
+**Voiding** a bill or payment needs approve; **archiving** an account and
+posting **reversals** need create. Only the BanglaQR overrides are
+owner-only: delete-receipt (FINANCE delete) and confirm-without-receipt
+(FINANCE edit). Money truth is guarded in layers — that's the point.
 
 ## 6. Troubleshooting
 

@@ -26,7 +26,9 @@ guest, room, dates, total amount, and status badge.
 
 ## 2. The booking lifecycle
 
-A booking moves through these statuses — mostly forward, never backward:
+A booking moves through these statuses — mostly forward, never backward.
+The one backward path lives outside the action buttons: a CANCELLED booking
+can be re-opened to PENDING or CONFIRMED.
 
 | Status | Meaning |
 |---|---|
@@ -37,6 +39,7 @@ A booking moves through these statuses — mostly forward, never backward:
 | **COMPLETED** | Stay over, checked out, settled |
 | **CANCELLED** | Cancelled (refund decision recorded) |
 | **NO_SHOW** | Never arrived, room released, payments kept |
+| **EXPIRED** | Unpaid PENDING booking auto-expired after 24h without payment evidence (unit released) |
 
 **The transitions staff perform** (from the booking's action buttons):
 
@@ -45,7 +48,9 @@ A booking moves through these statuses — mostly forward, never backward:
   get the housekeeping warning (*check in anyway?*) — it warns, never
   blocks.
 - **CHECKED_IN → COMPLETED** — checkout. Blocked while room-service orders
-  are open or the folio has a balance — settle first.
+  are open or the folio has a balance — settle first. A manager (approve
+  permission) may check out with a balance due by giving a written reason,
+  which is recorded in the status history.
 - **→ CANCELLED** — opens the **refund decision**: refund or not, and for
   online payments the gateway path is handled.
 - **→ NO_SHOW** — decided at night audit for arrivals that never came.
@@ -90,5 +95,5 @@ This is why the module matters most:
 |---|---|
 | Can't find a booking | Search matches code/name/phone/email — try a different fragment; check the status filter isn't hiding it. |
 | Edit button missing | The booking is cancelled/completed (locked), or you lack edit permission. |
-| Checkout won't complete | Open room-service orders or an unsettled folio balance — settle first. |
+| Checkout won't complete | Open room-service orders or an unsettled folio balance — settle first, or ask a manager to check out with a written reason. |
 | Amount change rejected | A reason is required for every amount change. |

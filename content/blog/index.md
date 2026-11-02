@@ -1,7 +1,8 @@
 # Blog — Staff Training Module
 
 **Page:** `/admin/blog` — the property's travel stories and guides.
-**Audience:** content writers, editors (primary), managers.
+**Audience:** owners, managers. (There is no separate writer role —
+staff and front-desk roles have no blog access at all.)
 **Time to complete:** about 20 minutes.
 **Prerequisite:** none.
 
@@ -22,7 +23,8 @@ lives on the website; this is its newsroom. Posts come from two sources:
 - **STAFF** — written by the team in the editor.
 - **GUEST** — traveler stories submitted through the website's story form.
   Every guest story lands as PENDING and an editor reads it before anything
-  goes live.
+  goes live — unless [guest moderation is off](settings/), in which case
+  clean stories publish immediately.
 
 ## 2. The post lifecycle
 
@@ -43,7 +45,8 @@ the date arrives.
 Search by **title, slug, or author**; filter by **status, category, author,
 source**; 20 per page. Each row shows title, author, category, status,
 publish date, photo count, and actions: **Preview**, **Edit**, **View
-live** (published posts), **Archive**, **Delete**.
+live** (published posts), **Delete**. (Archiving is a bulk action only —
+there is no per-row Archive button.)
 
 **Bulk actions:** select posts to **archive** (removed from the public
 blog, kept) or **delete** (*"Permanently delete \{count} posts and their
@@ -64,11 +67,12 @@ doubt.
 
 ## 5. Permissions
 
-Viewing needs blog-view. **Creating** needs the create permission.
-**Editing** a post depends on authorship and role (you can always edit
-your own drafts; others' posts need editor rights). **Approving**
-(PENDING → PUBLISHED) needs the approve permission. Deleting is the most
-guarded action of all.
+Only owners and managers work this module — staff and front-desk roles
+have no blog permission and can't even open the list. **Creating** needs
+the create permission. **Editing** a post depends on authorship and role
+(you can always edit your own drafts; others' posts need editor rights).
+**Approving** (PENDING → PUBLISHED) needs the approve permission.
+Deleting is the most guarded action of all.
 
 ## 6. Troubleshooting
 

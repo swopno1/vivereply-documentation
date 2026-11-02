@@ -15,7 +15,7 @@ entry types correctly, and know exactly what the balance means.
 *"Everything charged to and paid on this stay."* One chronological list of
 **entries** — charges, payments, discounts, refunds — each stamped with who
 posted it and when. The header shows the stay (*\{room} · unit \{unit} ·
-\{checkIn} to \{checkOut}, \{nights} nights*).
+\{checkIn} to \{checkOut} (\{nights} nights)*).
 
 ## 2. Reading the totals
 
@@ -45,13 +45,14 @@ to it."*).
 
 | Action | What it does | Needs |
 |---|---|---|
-| **Add charge** | Posts a charge: category (Extra bed, Laundry, Minibar, Food and drinks, Room service, Other — plus Early check-in / Late check-out, which auto-fill the fee from settings), description (required for Other) | Amount |
+| **Add charge** | Posts a charge: category (Extra bed, Laundry, Minibar, Food and drinks, Other — plus Early check-in / Late check-out, which auto-fill the fee from settings), description (required for Other). Room-service charges are not offered here — they post automatically when the order is delivered | Amount |
 | **Record payment** | Records money received: method (Cash, Card, bKash, Nagad, Bank transfer, Other) + reference. **Cash needs an open cash shift** — without one, the page links you to open it. | Amount, method |
-| **Discount** | Reduces the bill | Amount + **reason** (required) |
-| **Refund at desk** | Returns money to the guest | Amount + method + **reason** (required) |
+| **Discount** | Reduces the bill (manager-only — needs the approve permission) | Amount + **reason** (required) |
+| **Refund at desk** | Returns money to the guest (manager-only — needs the approve permission) | Amount + method + **reason** (required) |
 
-**Voiding a line** asks *why* and keeps the voided line visible, struck
-through — history is never rewritten, only corrected.
+**Voiding a line** (manager-only — needs the approve permission) asks
+*why* and keeps the voided line visible, struck through — history is
+never rewritten, only corrected.
 
 **Every post is idempotent** (a fresh key per submit): double-clicking the
 button can't double-charge the guest.
@@ -64,8 +65,9 @@ button can't double-charge the guest.
   agree.
 - **Online payments** (bKash/Nagad/SSLCommerz/BanglaQR/Stripe) appear as
   entries with their source marked.
-- The **balance** feeds the daily sheet's money-due and the front-desk
-  Owes column; **checkout is blocked** until it's settled.
+- The **balance** feeds the daily sheet's money-due and Owes columns (the
+  front-desk page itself shows no money); **checkout is blocked** until
+  it's settled.
 
 ## 5. Troubleshooting
 

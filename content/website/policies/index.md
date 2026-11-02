@@ -14,9 +14,14 @@ read it to a guest.
 
 | Page | What it covers |
 |---|---|
-| `/terms` | Booking terms: rates, check-in/out times, house rules, liability |
+| `/terms` | Intended booking terms: rates, check-in/out times, house rules, liability (currently demonstration sample copy — see note below) |
 | `/privacy` | What guest data the property collects and how it's used — names, contacts, stay history, and the [guest record](../../guests/) discipline behind it |
 | `/refund-policy` | When money comes back: cancellation windows, refund timelines, how refunds are processed |
+
+> **Demo state:** all three pages currently carry demonstration sample
+> copy ("Not a legal document"). The table above describes what a real
+> property must publish, drafted with legal advice. Until then, read the
+> page with the guest as-is — don't promise terms the page doesn't state.
 
 ## 2. When they matter
 
@@ -33,10 +38,12 @@ read it to a guest.
 
 ## 3. Discipline
 
-Policy pages are **legal promises**. Changing them is an owner task, and
-changes apply **going forward** — a booking made under the old refund
-policy is governed by the old refund policy. Never edit a policy page to
-win an argument with a guest in front of you.
+Policy pages are **legal promises** once a real property publishes its
+own copy — today they hold demonstration sample copy ("Not a legal
+document"). Changing them is an owner task, and changes apply **going
+forward** — a booking made under the old refund policy is governed by
+the old refund policy. Never edit a policy page to win an argument with
+a guest in front of you.
 
 ## 4. Troubleshooting
 

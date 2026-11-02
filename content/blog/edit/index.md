@@ -26,11 +26,14 @@ Editing a live post updates it in place — guests see the new version
 immediately on save. Rules of the road:
 
 - **Fix freely:** typos, broken links, better photos, updated prices.
-- **Think twice:** changing the slug breaks every link ever shared to the
-  old URL. Changing the title substantially on a post that's ranking is a
-  marketing decision, not a typo fix — check with the manager.
-- **Unpublishing:** move it back to DRAFT or ARCHIVE it rather than
-  deleting — deletion also destroys its photos permanently.
+- **Think twice:** changing the title substantially on a post that's ranking is a
+  marketing decision, not a typo fix — check with the manager. (Changing the
+  slug is safe: renaming a published post leaves a redirect, so old links keep
+  working while the post stays public.)
+- **Unpublishing:** move it back to DRAFT rather than
+  deleting — deletion also destroys its photos permanently. (The editor has no
+  Archive state — archive from the list's bulk action or the [moderation
+  queue](../pending/) instead.)
 
 ## 3. Sub-page
 
@@ -44,4 +47,4 @@ immediately on save. Rules of the road:
 |---|---|
 | "Forbidden" on opening | You lack edit rights for this post — your own drafts are always fine. |
 | Changes not showing live | Hard-refresh; then check you saved (not just previewed). |
-| Old slug still circulating | Set up a redirect if your site supports it; otherwise the old link is dead. |
+| Old slug still circulating | Renames redirect automatically while the post stays public — if the old link is dead, the post was unpublished or archived. |

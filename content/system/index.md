@@ -13,7 +13,8 @@ when it shows problems.
 ## 1. What the page is
 
 A read-only health check (SETTINGS.view — owner and auditor territory):
-**scheduled jobs** (their state: ok, stale, failing, never run),
+**scheduled jobs** (their state: ok, stale, failing, never run — or "Not
+needed" when the job's module, gateway, or config isn't in use),
 **configuration checks** (required environment variables for core
 services, email, and enabled gateways), the **business day**, the
 **books** state, and **owner/2FA stats**. One number at the top: problem

@@ -124,12 +124,16 @@ Open the shift, read the count detail and the holder's note, investigate
 and what was done**: found, repaid, or written off. The sign-off is the
 record the auditors read — write it like one.
 
+**You can't sign off your own shift** — another manager or the owner does
+(the owner excepted).
+
 ## 7. How cash connects to everything else
 
 - Desk payments on your shift feed the **dashboard's Revenue Today**
   (cash-collected definition) and the **Payments by method** card (Cash).
 - Un-signed-off shifts appear in the **daily sheet's owner summary**
-  ("Cash shifts to sign off") and block a clean night audit.
+  ("Cash shifts to sign off") and are flagged on the night-audit checklist
+  as a non-blocking warning — they don't stop the close.
 - Open cash shifts are flagged on the **night audit checklist** — close or
   hand over before the day closes.
 
@@ -140,5 +144,5 @@ record the auditors read — write it like one.
 | Can't take cash | No open shift — open one first. |
 | "Invalid amount" on open/close | Amounts must be positive numbers with at most 2 decimals. |
 | Count was wrong after submitting | It can't be changed — that's the point. The difference goes to sign-off; be accurate before confirming. |
-| Shift stuck open overnight | Close it (or a manager closes it with a note). Open shifts block the audit checklist. |
+| Shift stuck open overnight | Close it (or a manager closes it with a note). Open shifts don't stop the close — they're a checklist warning — but hand over promptly. |
 | Difference you can't explain | Don't guess — write what you know in the note and let the manager investigate. |

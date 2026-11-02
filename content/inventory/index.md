@@ -30,7 +30,8 @@ that's correct for your role.
 ## 2. Low stock — the signal that runs purchasing
 
 An item is **low** when its on-hand quantity is **at or below its reorder
-level** — the level you set per item meaning "order more now". Low items get
+level** — the level you set per item meaning "order more now" (and the
+level must be above zero: a level-0 item is never low). Low items get
 a badge, a banner counts them (*"Items at or below their reorder level:
 \{count}"*), and a **Low stock only** filter shows just them.
 
@@ -71,8 +72,9 @@ From the main page (create permission), several items at once:
 | **Issue** | Stock leaving the store for a department | Quantity + **to department** (Kitchen, Housekeeping, Front desk, Maintenance, Other) |
 | **Waste** | Spoiled, broken, expired | Quantity + **reason** (required) |
 
-Quantities go to three decimals (2.500 kg). Any line worth more than
-৳1 crore is rejected — check your quantity and price.
+Quantities go to three decimals (2.500 kg). On receives, any line worth
+more than ৳1 crore is rejected — check your quantity and price. (Issue
+and waste lines carry no entered value, so the cap doesn't apply there.)
 
 **Discipline:** record movements when they happen. Receiving "tomorrow" or
 issuing "from memory" is how book and shelf drift apart — and the drift is

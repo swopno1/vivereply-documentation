@@ -21,8 +21,9 @@ One form for everything a post needs:
 - **Excerpt** — one or two sentences shown on listing cards and link
   previews. Write it deliberately; it's the post's advertisement.
 - **Content** — the body in Markdown (headings, bold, lists, links all
-  work). Write \{min}–\{max} characters per the guest guidelines' spirit:
-  substantial enough to be useful, tight enough to be read.
+  work). Staff posts have no guest-style length gate (up to 100,000
+  characters) — write in the guest guidelines' spirit: substantial enough
+  to be useful, tight enough to be read.
 - **Category** — one, from the managed list. Uncategorized posts look
   lost — always pick one.
 - **Tags** — a few, from the managed list. Tags are how readers discover
@@ -55,4 +56,4 @@ a traveler an hour is worth ten generic "visit beautiful X" posts.
 |---|---|
 | Photo won't upload | Check the type (JPEG/PNG/WebP) and size against the blog settings limits. |
 | Publish button missing | Your property may require approval — submit for review instead. |
-| Slug looks wrong | Edit it before publishing; changing it after breaks shared links. |
+| Slug looks wrong | Edit it before publishing; after publishing, a rename leaves an automatic redirect while the post stays public. |

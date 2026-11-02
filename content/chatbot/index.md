@@ -20,20 +20,23 @@ talks to the guest. Together they're one complete package: a guest opens
 the chat widget on the property's website and talks — in English or
 Bengali — the way they'd talk to a front-desk agent: *"Do you have a
 villa free next weekend? How much for two nights? Can you hold it for
-me?"* The Chatbot doesn't guess. It calls the property's **live** Suite
-data:
+me?"* The Chatbot doesn't guess. It calls the property's Suite data —
+**live** availability plus its catalogue copy for prices:
 
 | It can | Via |
 |---|---|
 | Check real availability for dates | `check_availability` |
 | Quote the exact price | `get_quote` |
 | Create a booking draft (hold) | `create_booking_draft` |
-| Verify a booking by code | `verify_booking` / `lookup_booking_by_code` |
+| Verify the conversation's booking draft | `verify_booking` (reads the current draft; takes no code) |
+| Look up a booking by code | `lookup_booking_by_code` |
 | Send booking details to the guest's email | `request_booking_details` |
 | Hand the conversation to a human | `request_handoff` |
 
 That's the front-office job — query, book, schedule — done by an AI
-that works from the same live data your staff sees.
+that works from live availability and its catalogue copy. Only
+availability is live; prices come from the Chatbot catalogue snapshot,
+so Suite price changes do not propagate automatically.
 
 **Current build: ViveReply Concierge.** That's the name of the Chatbot's
 current build (entered in the Meta Global AI Hackathon). One product
@@ -49,13 +52,15 @@ and anything it doesn't know becomes a handoff, not a hallucination.
 
 **Two guardrails worth knowing about:**
 
-- **Retraction guard (EN+BN).** If the Chatbot states something the
-  tools don't support, it retracts — in the guest's language.
+- **Retraction rule (EN+BN).** The Chatbot is instructed to retract
+  anything the tools don't support — in the guest's language — rather
+  than invent. (A behavioral guideline; confirm on the live app.)
 - **Staged verification.** A guest proving "it's my booking" gets
   **dates + first name + status only** by code. Full details go **only to
   the email already on the booking** — never to an address the chatter
-  supplies. Identical generic replies whether the lookup hits or misses,
-  so nothing leaks.
+  supplies. A code miss answers plainly (*"No booking found for that
+  code"*); only the email-details request replies identically whether it
+  hits or misses, so nothing leaks.
 
 ## 2. The sections
 
@@ -64,7 +69,7 @@ and anything it doesn't know becomes a handoff, not a hallucination.
 | [Guest Chat](guest-chat/) | The guest experience: availability, quotes, drafts, verification, handoff |
 | [Capabilities](capabilities/) | Each capability explained — how it works, what the guest sees |
 | [Verification & Privacy](verification-privacy/) | The server-enforced privacy design |
-| [Staff Handoff](staff-handoff/) | The staff side: the handoff queue, bridge keys, embed tokens |
+| [Staff Handoff](staff-handoff/) | The staff side: the handoff queue, bridge keys, setup notices |
 | [Bridge API](bridge-api/) | Developer reference: work handoffs from your own servers |
 | [Connecting a Property](setup/) | Binding, domains, and the catalogue — what makes the Chatbot know *your* rooms |
 | [Best Practices](best-practices/) | Tips for owners, staff, and developers |
@@ -84,7 +89,7 @@ they talk through the versioned contract (spec v1).
 | Symptom | Check first |
 |---|---|
 | Widget shows an error panel | The property's domain isn't approved for its tenant — see [Setup](setup/) |
-| Chatbot quotes wrong prices | The Suite's room prices changed — the Chatbot reads them live; check the [room type](../rooms/edit/) |
+| Chatbot quotes wrong prices | Quotes come from the Chatbot's own catalogue copy, not the Suite's live prices — check the mapping (see [Setup](setup/)); Suite price changes don't propagate automatically |
 | A draft never became a booking | Drafts are holds, not bookings — they need confirmation; check [Bookings](../bookings/) |
 
 *Note: the Chatbot's own codebase is maintained separately. These docs

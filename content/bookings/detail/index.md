@@ -21,7 +21,9 @@ gated by your permissions.
 ## 2. The cards, top to bottom
 
 - **Guest information** — name, email, phone, NID/passport, address.
-  *"Not provided"* means exactly that — collect it at check-in.
+  NID/passport and address are display-only here: no admin screen collects
+  or edits them — they arrive via the website booking form. *"Not
+  provided"* means exactly that; chase the guest directly.
 - **Room and stay** — room type, **physical unit** (assigned at check-in),
   destination, dates, nights, price per night, total, guest count.
 - **Status history** — every status change with who and when. This is the
@@ -48,7 +50,8 @@ amount, payment status). Rules:
 - **Check in** (CONFIRMED → CHECKED_IN) — assigns the unit; warns if the
   room isn't inspected (warns, never blocks).
 - **Check out** (CHECKED_IN → COMPLETED) — blocked by open room-service
-  orders or an unsettled folio.
+  orders or an unsettled folio. A manager (approve permission) may check
+  out with a balance due by giving a written reason.
 - **Cancel** — opens the **refund decision modal**: refund or not, with the
   online-payment path noted for gateway payments.
 
@@ -56,9 +59,11 @@ amount, payment status). Rules:
 
 Bookings paid via BanglaQR that need a human eye show **verify / reject**
 controls here (plus confirm-without-receipt and delete-receipt actions,
-each requiring a written reason). This is the **PENDING_MANUAL_VERIFICATION**
-queue made actionable — verify promptly; the guest is waiting on their
-confirmation.
+each requiring a written reason). Verify / reject are owner- and
+manager-only; confirm-without-receipt and delete-receipt are owner-only —
+front desk cannot verify from here. This is the
+**PENDING_MANUAL_VERIFICATION** queue made actionable — verify promptly;
+the guest is waiting on their confirmation.
 
 ## 6. Troubleshooting
 
@@ -66,5 +71,5 @@ confirmation.
 |---|---|
 | Edit button missing | Booking is cancelled/completed, or you lack edit permission. |
 | Check-in warns about the room | Housekeeping state — check the guest in anyway, then chase housekeeping. |
-| Check-out blocked | Open room-service ticket or folio balance — settle first. |
+| Check-out blocked | Open room-service ticket or folio balance — settle first, or ask a manager to check out with a written reason. |
 | Cancel asks about refunds | Answer deliberately — the refund decision is recorded and gateway-linked. |

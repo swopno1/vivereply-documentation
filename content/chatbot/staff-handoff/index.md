@@ -33,8 +33,9 @@ A handoff has:
 Open **/admin/chatbot-admin** in your Suite admin. (The old
 `/admin/concierge-handoffs` URL redirects here.)
 
-**Permission:** `FRONT_DESK.view` — owners, managers, front desk, staff,
-and auditors can work it.
+**Permission:** `FRONT_DESK.view` to see the queue — owners, managers,
+front desk, staff, and auditors. Assigning, noting, and closing need
+`FRONT_DESK.edit`, so auditors are read-only.
 
 The page shows three tabs — **Open**, **In progress**, **Closed** — with
 counts. Each row expands to show:
@@ -73,15 +74,17 @@ named per consumer (e.g. `demo1 dashboard`) and scoped to one property.
 The key is **shown once** — like a password, never paste it in chat or
 email.
 
-- The key lives in the Suite's server environment (`CONCIERGE_BRIDGE_KEY`)
-  and **never reaches the browser**.
+- The key lives on the Suite's server — in **Settings → Chatbot**
+  (stored encrypted) or the `CONCIERGE_BRIDGE_KEY` environment variable,
+  which takes precedence — and **never reaches the browser**.
 - Each key sees **only its own property's** handoffs.
 - Revoking a key in Settings kills it instantly.
 
 **Setup (owner, one time):**
 1. Mint the bridge key in the Chatbot Settings → Bridge keys.
-2. Set `CONCIERGE_BRIDGE_KEY` in the Suite's hosting environment variables.
-3. Redeploy. The queue loads on next visit.
+2. Paste it into the Suite's **Settings → Chatbot** (no redeploy needed)
+   or set `CONCIERGE_BRIDGE_KEY` in the hosting environment.
+3. The queue loads on next visit.
 
 Until the key is configured, the page shows a setup notice instead of a
 broken queue.

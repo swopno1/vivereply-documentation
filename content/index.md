@@ -64,8 +64,10 @@ property's *business day*, which moves forward only when the night audit
 closes the previous day (normally around 04:00 property time). A booking
 made at 01:00 at night still belongs to *yesterday's* business day. Every
 date on every screen means business date unless it says otherwise. The
-current business day and the property time zone are shown at the top of
-the dashboard — always glance there first when a number surprises you.
+current calendar date and the property time zone are shown at the top of
+the dashboard — between midnight and the night-audit close this runs a day
+ahead of the open business day. Always glance there first when a number
+surprises you.
 
 **Money is cash collected, not earned.** Wherever the dashboard shows
 revenue, it means money that has actually arrived — gateway payments
@@ -81,7 +83,7 @@ ever see taka on screen.
 If a colleague's screen looks different from yours, that is usually why —
 not a bug.
 
-**You can never approve your own work.** Every approval queue in the
-system enforces separation of duties — journals, payments, counts,
-refunds, time off. It's the single most repeated rule in these docs
+**You can never approve your own work — unless you are the owner.** Every approval queue in the
+system enforces separation of duties — journals, payments, counts.
+It's the single most repeated rule in these docs
 because it's the single most important control the property has.

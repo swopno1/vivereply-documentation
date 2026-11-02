@@ -7,12 +7,12 @@
 
 ## Learning objectives
 
-After this module you can navigate the six tabs, know what each controls,
+After this module you can navigate the seven tabs, know what each controls,
 and understand the permission model before changing anything.
 
 ## 1. What the page is
 
-Six tabs, each a real link (`?tab=…`), each with its own permission. The
+Seven tabs, each a real link (`?tab=…`), each with its own permission. The
 tab bar **shows only the tabs your role can open**, and the page checks
 again before rendering. **Viewing** needs the view permission;
 **saving** needs SETTINGS.edit (the Users tab uses USERS.* instead).
@@ -21,6 +21,7 @@ again before rendering. **Viewing** needs the view permission;
 |---|---|---|---|
 | **General** | [General](general/) | view / edit to save | Property identity, timezone, check-in/out windows, fees, email status |
 | **Payments** | [Payments](payments/) | edit (owner-only gateway forms) | Payment gateway configuration |
+| **Chatbot** | — | edit (owner-only) | Concierge property + bridge keys (website widget, staff handoff board) |
 | **PMS** | [PMS](pms/) | edit | PMS connections |
 | **Users** | [Users](users/) | USERS.view / USERS.* to change | Staff accounts and roles |
 | **Modules** | [Modules](modules/) | view | Feature flags per module |

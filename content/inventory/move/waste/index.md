@@ -12,8 +12,8 @@ information instead of a hidden loss.
 
 ## 1. The flow
 
-1. Add a line per item: choose the item, enter the **quantity**, and write
-   the **reason** — required, every time.
+1. Add a line per item: choose the item and enter the **quantity**. Then
+   write the one **reason** for the whole movement — required, every time.
 2. **Add another item** as needed, review, **Save** — *"Saved. Stock
    updated."*
 
@@ -33,5 +33,5 @@ signal. Record it as waste, with the reason.
 
 | Symptom | Check first |
 |---|---|
-| Save blocked with no clear error | The reason is required on every waste line — check each one. |
+| Save blocked with no clear error | The single movement reason is required — check it's filled in. |
 | Waste keeps rising on one item | Not a recording problem — escalate: ordering, storage, or supplier. |

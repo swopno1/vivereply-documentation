@@ -12,19 +12,21 @@ do it, and why reopening is restricted.
 
 ## 1. What the page is
 
-Thirteen months: the current month plus the twelve before it. Each shows
-its state — open or closed.
+Thirteen months at most: the current month plus the twelve before it —
+fewer when the books' start date is recent. Each shows its state — open
+or closed. Only a past month can close; the current month stays open.
 
 ## 2. Closing a month
 
 **Closing needs the approve permission.** A closed month's entries are
-final: the period's P&L is settled into the books, and the month becomes
-read-only history. Close months promptly — an ever-open past month is an
-invitation to backdate.
+final: the month is marked CLOSED (plus an audit row) and becomes
+read-only history — no settlement entries are posted. Close months
+promptly — an ever-open past month is an invitation to backdate.
 
-**Before closing:** clear the waiting queues (manual journals, supplier
-payments, petty cash counts), post everything pending, and reconcile the
-money accounts. A close on dirty queues bakes the dirt in.
+**Before closing:** decide every SUBMITTED manual journal dated in that
+month (the close refuses while any waits), post everything pending, and
+reconcile the money accounts. Supplier payments and petty cash counts
+aren't close-blockers, but a close on dirty queues bakes the dirt in.
 
 ## 3. Reopening
 
@@ -37,6 +39,6 @@ immediately after, and record why.
 
 | Symptom | Check first |
 |---|---|
-| Can't close | You need approve permission; also clear the waiting queues first. |
+| Can't close | You need approve permission; the month must be over; and no SUBMITTED manual journal dated in it may still wait. |
 | Can't reopen | Owner-only — that's intentional. |
 | Reports look wrong for a past month | It may have been reopened and changed — check with the owner/accountant. |

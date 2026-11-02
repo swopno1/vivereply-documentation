@@ -1,7 +1,7 @@
 # Admin Dashboard — Staff Training Module
 
 **Page:** `/admin` — the first screen after login.
-**Audience:** front desk, managers, finance, owners.
+**Audience:** managers, accountants, owners.
 **Time to complete:** about 30 minutes reading, then one supervised shift.
 
 ## Learning objectives
@@ -141,10 +141,11 @@ example, *14 of 19 units occupied*.
 - **0% with "No bookable units set up yet"** means the inventory isn't
   configured — an admin task, not a sales problem.
 
-**Where it comes from.** Occupied tonight = bookings currently checked in
-against a unit, divided by *bookable* units (units that are active, not
-archived, and in service — maintenance/out-of-order units are excluded from
-both sides of the fraction).
+**Where it comes from.** Occupied tonight = confirmed *and* checked-in
+bookings overlapping tonight, divided by *bookable* units (units that are
+active, not archived, and in service — maintenance/out-of-order units are
+excluded from both sides of the fraction). A confirmed arrival already
+counts as occupied before it checks in.
 
 ### 3.4 Available Units Tonight
 
@@ -201,11 +202,15 @@ of those two actions was missed or done on the wrong booking.
 **How to read it.** Each unit is one guest payment made by QR that the system
 could not auto-verify and parked for a human.
 
-**What to do.** This is **front-desk action work**, not passive information:
-open each one, match it against the bank statement/notification, then approve
-or reject. Work this queue to zero at least twice a day — a guest whose
-payment sits unverified may be told their booking is unpaid. If a payment
-can't be matched, escalate to the manager; never approve on guesswork.
+**What to do.** This is **action work for staff with finance rights**,
+not passive information: opening the queue needs finance-view permission
+(plus 2FA), and approving or rejecting needs finance approval — the
+front-desk role has neither, so hand these to a manager, accountant, or
+owner. Match each one against the bank statement/notification, then
+approve or reject. Work this queue to zero at least twice a day — a guest
+whose payment sits unverified may be told their booking is unpaid. If a
+payment can't be matched, escalate to the manager; never approve on
+guesswork.
 
 **Where it comes from.** Bookings stuck in *pending manual verification*
 status after a Bangla QR receipt submission.
@@ -281,7 +286,7 @@ units may be wrongly marked out-of-order or stuck dirty — check with
 housekeeping, then the manager. The *Manage Room* button opens the room's
 admin page.
 
-### 6.2 "Unpaid booking RES-… (Guest Name) is older than 24h"
+### 6.2 "Unpaid booking RES-… (Guest Name) is older than 24 hours"
 
 **What it means.** A booking was created more than 24 hours ago, is still in
 *Pending* (unpaid), and the system held it past the normal expiry. Only the
@@ -304,8 +309,9 @@ book. Every day it sits, the property loses a potential sale.
 ## 7. Payments by Method
 
 **What it is.** This month's received payments broken down by method — bKash,
-Nagad, SSLCommerz, Bangla QR, Stripe, Cash, Other — each showing gross
-received and the number of payments. Finance-permission only.
+Nagad, SSLCommerz, Bangla QR, Stripe (shown under its raw code STRIPE),
+Cash, Other — each showing gross received and the number of payments.
+Finance-permission only.
 
 **How to analyse it.**
 
@@ -318,9 +324,12 @@ received and the number of payments. Finance-permission only.
 - **Counts vs. amounts:** many tiny payments on one method can signal test
   transactions or split payments worth a glance.
 
-**Export CSV.** The *Export CSV* button downloads the month's payment data
-for spreadsheets and the accountant. The export contains the same figures as
-the cards.
+**Export CSV.** The *Export CSV* button downloads an all-time gateway
+attempt report — bKash, Nagad, and SSLCommerz only, with attempt counts,
+success rates, and revenue — for spreadsheets and the accountant. It is
+*not* the month's card figures: no month window, no desk takings, no
+Bangla QR, no Stripe. Exporting needs the reports-export permission and
+the reports module.
 
 **Where it comes from.** The same collected-payments data as the Revenue
 cards, grouped by provider. Desk takings appear under Cash/Other.

@@ -16,17 +16,19 @@ The guest directory: every person with a booking, newest first, 20 per
 page. **Search matches name, email, or phone** — the same fragments you
 use on the bookings page.
 
-Each guest row shows their **booking history** (room, dates, newest first)
-and counts — at a glance: is this a first-timer or a regular, and what do
-they usually book?
+Each guest row shows stay **counts**, last stay, and member-since — at a
+glance: is this a first-timer or a regular? The full **booking history**
+(room, dates, newest first) opens in a dialog via the row's **View history**
+button.
 
 ## 2. What the property keeps per guest
 
 - **Name, phone, email** — captured at booking; the phone is the
   operational key (front-desk dialing, Chatbot verification).
-- **NID/passport, address** — collected at check-in (*"not provided"*
-  until then). Required for the property's records — ask at check-in,
-  every time.
+- **NID/passport, address** — display-only in admin: no screen collects
+  or edits them; they arrive via the website booking form (*"not
+  provided"* until then). Chase the guest directly — they are required
+  for the property's records.
 
 ## 3. How guests connect
 
@@ -39,8 +41,9 @@ they usually book?
 
 ## 4. Discipline
 
-- **One record per person.** Before creating anything manually, search —
-  duplicates split history and break the "regular guest" read.
+- **One record per person.** Guests are created automatically with their
+  bookings — there is no manual guest creation. Before each new booking,
+  search — duplicates split history and break the "regular guest" read.
 - **Phones are sacred.** A wrong digit means a missed arrival call and a
   failed verification. Read it back at check-in.
 - **Privacy.** Guest data is the property's most sensitive data. It never
@@ -51,6 +54,6 @@ they usually book?
 
 | Symptom | Check first |
 |---|---|
-| Two records for one guest | Merge discipline: search before creating; ask a manager about merging. |
-| Missing NID/passport | It collects at check-in — chase it then, not later. |
+| Two records for one guest | There is no merge — search before each new booking so duplicates never split history. |
+| Missing NID/passport | No admin field collects it — it arrives via the website booking form. Chase the guest directly. |
 | Can't find a guest | Try phone fragment — it's the most reliable key. |

@@ -13,8 +13,8 @@ After this module you can receive a delivery so the books stay honest.
 
 1. Add a line per item delivered: choose the item (or open with `?item=`
    preselected), enter the **quantity** and the **price per unit in taka**.
-   The page shows *"\{qty} on hand"* beside each item — glance at it and
-   sanity-check against the shelf before saving.
+   (Unlike issue and waste, receiving shows no on-hand beside the item —
+   sanity-check against the shelf before saving.)
 2. Fill **supplier** and **invoice/reference** (optional fields). Fill them
    anyway: when a bad batch has to be traced, the invoice ref is the thread
    you pull.
