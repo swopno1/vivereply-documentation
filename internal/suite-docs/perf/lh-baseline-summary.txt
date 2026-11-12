@@ -1,0 +1,65 @@
+Baseline Performance Measurement Summary
+=======================================
+
+1. Homepage (http://localhost:3000/)
+-----------------------------------
+Performance Score: 73
+LCP: 4.5s
+TBT: 440ms
+CLS: 0
+
+Top Opportunities:
+- Reduce unused JavaScript: ~150ms savings (26 KiB)
+
+Top 5 Largest Resources (Transfer Size):
+1. noto_sans_bengali.woff2 (Font) - 214 KB
+2. inter.woff2 (Font) - 74 KB
+3. 090uv7ln8ub69.js (Script) - 72 KB
+4. 0ojtkq--61xku.js (Script) - 42 KB
+5. playfair_display.woff2 (Font) - 39 KB
+
+2. FAQ Page (http://localhost:3000/faq)
+--------------------------------------
+Performance Score: 83
+LCP: 4.4s
+TBT: 160ms
+CLS: 0
+
+Top Opportunities:
+- Reduce unused JavaScript: ~150ms savings (29 KiB)
+
+Top 5 Largest Resources (Transfer Size):
+1. noto_sans_bengali.woff2 (Font) - 214 KB
+2. inter.woff2 (Font) - 74 KB
+3. 090uv7ln8ub69.js (Script) - 72 KB
+4. 0ojtkq--61xku.js (Script) - 42 KB
+5. playfair_display.woff2 (Font) - 39 KB
+
+3. Destination Page (http://localhost:3000/destinations/coxs-bazar)
+-------------------------------------------------------------------
+Performance Score: 58
+LCP: 5.2s
+TBT: 1050ms
+CLS: 0
+
+Top Opportunities:
+- Reduce unused JavaScript: ~150ms savings (27 KiB)
+
+Top 5 Largest Resources (Transfer Size):
+1. noto_sans_bengali.woff2 (Font) - 214 KB
+2. inter.woff2 (Font) - 74 KB
+3. 090uv7ln8ub69.js (Script) - 72 KB
+4. hero image (Image) - 61 KB
+5. 0ojtkq--61xku.js (Script) - 42 KB
+
+Next.js Bundle Analyzer Summary (Top 10 Largest Modules/Chunks):
+1. 474-*.js (235.5 KB) - Google Maps SDK loader (@googlemaps/js-api-loader)
+2. 30bb3ed0-*.js (196.3 KB) - React DOM & Next client hydration
+3. framework-*.js (185.2 KB) - React / Next framework runtime
+4. main-*.js (136.3 KB) - Next router & app main entry
+5. 9522-*.js (35.8 KB) - Better Auth client
+6. 8314-*.js (34.6 KB) - Radix UI components
+7. 2591-*.js (33.6 KB) - Lucide React icons / Radix UI
+8. 9386-*.js (22.7 KB) - Radix UI components
+9. 1983-*.js (20.0 KB) - Google Maps loader
+10. 8282-*.js (9.8 KB) - Google Maps helper
