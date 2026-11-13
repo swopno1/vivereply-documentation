@@ -224,6 +224,23 @@ docker run -d \
   resort-app:latest
 ```
 
+### Scheduler on Docker hosts (required — Handover I-6)
+
+A container has no cron daemon and no platform scheduler: skip this step and every job stays at "Never ran", the business day never closes, and holds, reminders and postings pile up. Pick one option; either way the §7.2e crontab stays the single list of jobs and schedules.
+
+**Option 1 — host crontab (simplest).** On the Docker host, `crontab -e` and paste the §7.2e lines, pointed at the property's public URL, with `CRON_SECRET` read from the same env file the container uses:
+
+```cron
+0 * * * * curl -fsS -X POST -H "Authorization: Bearer $(grep ^CRON_SECRET= /var/www/resort-app/.env | cut -d= -f2-)" https://yourresort.com/api/cron/night-audit >> /var/log/resort-cron.log 2>&1
+# ... plus one line per §7.2e job (pending-expiry, ledger-posting,
+# guest-reminders, blog-attempts-cleanup, the gateway reconciles this
+# property uses, fetch-google-reviews, PMS sync) and the §7.1 backup lines.
+```
+
+**Option 2 — scheduler sidecar.** Add a second compose service that runs a cron daemon (or `supercronic`) with the shared env file and curls the app service on the §7.2e schedules. Keep the schedules identical to §7.2e; do not keep a second schedule list.
+
+Finish with the System Health check in §6 before calling the deploy done. Wiring the crontab on an existing host (demo13 included) is a founder ops step, not part of the app deploy.
+
 ---
 
 ## 4. Nginx Reverse Proxy Setup
@@ -390,6 +407,9 @@ page rules.
    - Ping domain from a Bangladeshi IP / connection: `ping yourresort.com` (Target <15ms).
 3. **Verify SSL**:
    - Visit `https://yourresort.com` in browser and confirm padlock icon.
+4. **Verify scheduled jobs** (Handover I-6):
+   - Open Admin › System Health (`/admin/system`) as OWNER: every job the property needs must show a recent success — none may sit at "Never ran" past its first scheduled time (hourly jobs: within the hour; daily jobs: the morning after).
+   - A job that never reports has a missing or failing schedule line — check `/var/log/resort-cron.log` (and the backup log) on the scheduler host.
 
 ---
 
