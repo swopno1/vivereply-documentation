@@ -74,7 +74,10 @@ Each stay card shows, top to bottom:
 - **Dates → nights** and **guest count** (the little person icon).
 - **Booking code** (mono text) — the reference you'll use on the phone.
 - **Call** button — dials the guest's phone directly. Use it.
-- **Open booking** button — the full record: payments, folio, timeline.
+- **Open booking** link — the full record: payments, folio, timeline.
+  There is deliberately no check-in button on the card: checking in changes
+  the folio and the unit state, so it always happens inside the booking
+  record, where the desk can see the balance first.
 
 ### What to do — the arrival workflow
 

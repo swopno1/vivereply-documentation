@@ -15,7 +15,13 @@ view.
 One day at a time (`?date=YYYY-MM-DD`, defaulting to the business date;
 never the future): every working employee that day, ordered by department
 then code, with their presence to mark. Marking needs the create
-permission.
+permission. Each row offers **Present, Absent, Half day, Day off, Leave
+or Not marked**, plus a free-text **Note** for the exceptions that need
+explaining.
+
+**Days not marked are paid as present.** An untouched row is not neutral
+— it pays. That is why end-of-day marking is the discipline: absence you
+never record becomes salary you can't defend.
 
 ## 2. The monthly view
 

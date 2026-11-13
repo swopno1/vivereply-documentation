@@ -13,12 +13,17 @@ correctly — and you know where it lives now.
 
 ## 1. Where it lives
 
-The queue moved off the sidebar into **Finance → Waiting for approval**
-(founder decision, 2026-10-30): it's a finance task, not a department.
-The page URL is unchanged. Reach it from **Finance → Waiting for
-approval**, the **payments index**, or the booking detail's verify
-controls. (The night-audit checklist and the daily sheet's owner summary
-flag the pending count as plain text — they don't link here.)
+The queue lives under **Payments** in the sidebar
+(`/admin/payments/banglaqr-verification`), reached from the Payments hub
+card. Its count also surfaces on the **Finance overview** (*BanglaQR
+verifications: N waiting*), the night-audit checklist, and the daily
+sheet's owner summary — four flags means it's important, but there is
+only one queue. (The night-audit and daily-sheet flags are plain text —
+they don't link here.)
+
+An empty queue says plainly: *"No pending payments received yet. Queue
+clear."* Payments stay verifiable for **120 minutes after payment**
+(the verification window).
 
 **Permission:** FINANCE approve (manager+). Guests' payments must never
 wait on someone without authority.

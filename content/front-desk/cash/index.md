@@ -26,7 +26,9 @@ drawer is honest.
 **The golden rule:** *no open shift = no cash handling.* The page tells you
 plainly: "You have no open shift. You can't take or pay out cash until you
 open one." If a guest offers cash and your shift isn't open, open it first —
-never "record it later".
+never "record it later". The gate is **per user**: a colleague's open shift
+doesn't cover you — a cash folio payment attempted without *your own* open
+shift is refused, so open yours before taking cash.
 
 ## 2. Opening your shift
 

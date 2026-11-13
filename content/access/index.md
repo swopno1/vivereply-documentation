@@ -35,9 +35,14 @@ for your role before touching real data.
 ## 2. Every day after
 
 Sign in at `/admin/login` with your email and password (+ the
-authenticator code if 2FA is on). **One account per person** — shared
-logins destroy the audit trail, and every "by \{name}" in the system
-depends on accounts being personal.
+authenticator code if 2FA is on — the page moves to a second step,
+*"Two-Factor Authentication / Enter the 6-digit TOTP code from your
+authenticator app"*, with a **Verify Code** button). **One account per
+person** — shared logins destroy the audit trail, and every "by \{name}"
+in the system depends on accounts being personal. Wrong passwords are
+rejected (*"Invalid email or password."*) and audited as failed
+sign-ins — after a few failures, slow down and use the reset link
+instead of guessing.
 
 **Lost password?** Use `/admin/forgot-password` (linked from the login
 page) — a reset link goes to your email. (`/admin/reset-password` is

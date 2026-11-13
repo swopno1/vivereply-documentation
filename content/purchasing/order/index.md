@@ -13,7 +13,9 @@ edit it within the rules.
 ## 1. What the page is
 
 The order's full picture: number, status, supplier, dates, lines (ordered
-vs received per line), totals, and history. From here:
+vs received per line), totals, and a **timeline** — Drafted, Submitted,
+Approved and (for finished orders) the closing entry, each with who and
+when, in time order. From here:
 
 - **Edit** (`/admin/purchasing/[id]/edit`) — DRAFT only; anything past
   draft redirects back here. After approval, the order is a commitment:

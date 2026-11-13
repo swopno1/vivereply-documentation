@@ -40,7 +40,8 @@ Audit](front-desk/night-audit/)) → [Housekeeping](housekeeping/) →
 
 **The money:** [Finance](finance/) ([Journals](finance/journals/),
 [Payables](finance/payables/), [Petty Cash](finance/petty-cash/),
-[Reports](finance/reports/)) and [Expenses](expenses/).
+[Reports](finance/reports/)), [Payments](payments/), and
+[Expenses](expenses/).
 
 **The property:** [Rooms](rooms/), [Guests](guests/),
 [Inventory](inventory/), [Purchasing](purchasing/), [HR](hr/),

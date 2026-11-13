@@ -106,8 +106,12 @@ today's arrivals prepaid days ago. That is healthy, not alarming — check
 (bKash, Nagad, SSLCommerz, Bangla QR, Stripe) on the day the money arrived,
 plus cash/card taken at the front desk and recorded on the guest folio, minus
 completed refunds from each gateway and desk refunds. Desk takings are
-attributed by **business date**, so a cash payment taken at 01:00 lands on the
-correct business day.
+attributed by the **open business day**, so a cash payment taken at 01:00 lands
+on the correct business day — and if the night audit has not closed for
+several days (System Health shows the day "behind"), today's desk takings
+still land on the open day, not the calendar date. That is why Revenue Today
+can read ৳0 on a day with desk activity: check the open business day in
+System Health before questioning the figure.
 
 **What to do with it.** Front desk: compare it at end of shift against your
 cash drawer and the day's receipts — they should reconcile. Any unexplained
@@ -348,10 +352,12 @@ check-in date, and a status badge.
 | Badge | Meaning | Your action |
 |---|---|---|
 | **Pending** (amber) | Created, not yet paid | Needs payment or cancellation — see §6.2 |
+| **Pending Verification** (amber) | BanglaQR receipt received, awaiting your verification | Work the verification queue — see Payments |
 | **Confirmed** (green) | Paid/approved, stay in future | Nothing until arrival prep |
 | **Checked-in** (blue) | Guest is in the building | Normal operations |
 | **Completed** (grey) | Stay finished and closed | Historical; nothing to do |
 | **Cancelled** (red) | Cancelled, unit released | Nothing, unless a refund is due |
+| **Expired** (grey) | Hold lapsed after 24 hours without payment | Nothing; the units are already released |
 | **No-show** (orange) | Never arrived, never cancelled | Charge per policy, then close |
 
 **How to use the table.** It is your "what just happened" feed. A sudden run

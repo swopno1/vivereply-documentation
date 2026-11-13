@@ -17,7 +17,17 @@ Every employee: **code** (e.g. EMP-0007), name (English + Bengali),
 **monthly salary**. Sorted by status then code; exportable (CSV) with the
 export permission.
 
-## 2. Record discipline
+## 2. Opening a record
+
+The employee page gathers everything about one person: role and
+department, status and dates, salary and bank account, contact, the
+**linked login** (if they sign in to the admin), **leave balances**
+(Casual, Sick, Annual, Unpaid — taken vs allowed), this month's
+attendance at a glance, and their **payslips** once a payroll is
+approved. It is the first place to look when pay, leave, or access
+questions come up.
+
+## 3. Record discipline
 
 - **Join date starts everything.** Attendance and payroll both read it —
   a missing join date means missing pay.
@@ -30,7 +40,7 @@ export permission.
   after.
 - **Codes are permanent.** Never reuse a departed employee's code.
 
-## 3. Troubleshooting
+## 4. Troubleshooting
 
 | Symptom | Check first |
 |---|---|

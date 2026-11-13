@@ -20,9 +20,18 @@ Every reservation and stay in the property, newest first, 20 per page. It
 is the front desk's phone book: when a guest calls, you find them here.
 
 **Finding a booking:** the search box matches **booking code, guest name,
-phone, or email** — type any fragment. Narrow with the **status filter**,
-the **room filter**, or a **check-in date range**. Each row shows the code,
-guest, room, dates, total amount, and status badge.
+phone, or email** — type any fragment. Narrow with the **status filter**
+(All Statuses, or one option per status: Pending, Pending Verification,
+Confirmed, Checked In, Completed, Cancelled, Expired, No-show), the
+**room filter** (active room types only), or a **check-in date range**,
+then **Apply Filters** (or **Reset Filters** to start over). Every filter
+lives in the URL, so a filtered view can be bookmarked or shared.
+
+Each row shows number, guest, room, check-in, check-out, nights, guest
+count, total, paid amount, source, status and payment-status badges, and
+created date. **Select columns** trims the table to what you need;
+**Export (CSV)** downloads what the filters show; **New Booking** starts
+an offline reservation.
 
 ## 2. The booking lifecycle
 

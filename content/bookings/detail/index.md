@@ -52,8 +52,13 @@ amount, payment status). Rules:
 - **Check out** (CHECKED_IN → COMPLETED) — blocked by open room-service
   orders or an unsettled folio. A manager (approve permission) may check
   out with a balance due by giving a written reason.
-- **Cancel** — opens the **refund decision modal**: refund or not, with the
-  online-payment path noted for gateway payments.
+- **Cancel** — opens the **refund decision modal**: choose **Yes,
+  refund** or **No refund** first (Confirm stays disabled until you
+  pick one). For bookings with a successful online payment, cancel here
+  and then issue the actual gateway refund from the payment controls —
+  the modal tells you so. The decision lands in the status history with
+  the policy tier and eligible amount (*"Tier NONE, eligible ৳0. No
+  refund issued."*).
 
 ## 5. BanglaQR verifications
 

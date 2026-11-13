@@ -37,9 +37,14 @@ every screen's "today" shifts with it.
 ## 4. Email status
 
 A read-only card showing email readiness from the server's environment —
-**no secret values are shown**. If mail isn't sending, this card is the
-first place to look: it tells you what's configured and what's missing,
-without exposing credentials.
+**no secret values are shown**. Mail needs two server variables:
+**RESEND_API_KEY** (the sending key) and **RESEND_FROM_EMAIL** (the sender
+address) — the card shows *Ready* only when both are set, and names
+whichever is missing (*"RESEND_API_KEY is not set, so no email is
+sent."*). System Health flags the same two names when email is
+unconfigured, so a missing-key fault is visible in both places. If mail
+isn't sending, this card is the first place to look: it tells you what's
+configured and what's missing, without exposing credentials.
 
 ## 5. Troubleshooting
 

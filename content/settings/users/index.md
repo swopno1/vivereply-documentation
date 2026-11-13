@@ -12,12 +12,14 @@ discipline the permission model expects.
 
 ## 1. What the tab is
 
-Every staff login: name, email, **role**, active flag. Roles are the
-permission bundles from the roles documentation — OWNER, MANAGER,
-FRONT_DESK, HOUSEKEEPING, AUDITOR, and friends. (STAFF is deprecated:
-it still exists on old accounts, but the invite and role pickers no
-longer offer it.) Everything a user can see and do in the admin flows
-from their role.
+Every staff login: name, email, **role**, status, last sign-in, and
+**2FA state** (Enrolled / Not enrolled). Roles are the permission
+bundles from the roles documentation — OWNER, MANAGER, FRONT_DESK,
+HOUSEKEEPING, AUDITOR, and friends. (STAFF is deprecated: it still
+exists on old accounts, but the invite and role pickers no longer offer
+it.) Everything a user can see and do in the admin flows from their
+role. Each row offers **Change role**, **Reset password**,
+**Deactivate**, and **Require 2FA**.
 
 **Writes here need USERS.\*** — separate from SETTINGS.edit, deliberately:
 who can create accounts is a different question from who can change the

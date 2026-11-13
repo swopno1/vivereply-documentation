@@ -11,6 +11,7 @@ export default {
   purchasing: "Purchasing",
   expenses: "Expenses",
   finance: "Finance",
+  payments: "Payments",
   hr: "HR",
   blog: "Blog",
   website: "Website",
