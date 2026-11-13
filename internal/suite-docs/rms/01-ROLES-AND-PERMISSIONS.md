@@ -209,7 +209,7 @@ The sidebar is computed from this matrix. Nothing is hard-coded per role.
 |---|---|---|
 | Dashboard | `/admin` | `REPORTS.view` |
 | Front Desk | `/admin/front-desk` | `FRONT_DESK.view` |
-| Concierge Handoffs | `/admin/concierge-handoffs` | `FRONT_DESK.view` |
+| Chatbot Admin | `/admin/chatbot-admin` | `FRONT_DESK.view` |
 | Housekeeping | `/admin/housekeeping` | `HOUSEKEEPING.view` (Phase B2) |
 | Room Service | `/admin/room-service` | `ROOM_SERVICE.view` (Phase C) |
 | Inventory | `/admin/inventory` | `INVENTORY.view` (Phase D) |
@@ -233,15 +233,15 @@ Resulting sidebars:
 
 | Role | Sees |
 |---|---|
-| OWNER | Dashboard, Front Desk, Concierge Handoffs, Housekeeping, Room Service, Inventory, Purchasing, Expenses, Finance, Payments, HR, Bookings, Blog Articles, Rooms, Guests, Settings, System Health, Audit Log |
-| MANAGER | Dashboard, Front Desk, Concierge Handoffs, Housekeeping, Room Service, Inventory, Purchasing, Expenses, Finance, Payments, HR, Bookings, Blog Articles, Rooms, Guests |
-| FRONT_DESK / STAFF | Front Desk, Concierge Handoffs, Housekeeping, Room Service, Bookings, Guests |
+| OWNER | Dashboard, Front Desk, Chatbot Admin, Housekeeping, Room Service, Inventory, Purchasing, Expenses, Finance, Payments, HR, Bookings, Blog Articles, Rooms, Guests, Settings, System Health, Audit Log |
+| MANAGER | Dashboard, Front Desk, Chatbot Admin, Housekeeping, Room Service, Inventory, Purchasing, Expenses, Finance, Payments, HR, Bookings, Blog Articles, Rooms, Guests |
+| FRONT_DESK / STAFF | Front Desk, Chatbot Admin, Housekeeping, Room Service, Bookings, Guests |
 | HOUSEKEEPING | Housekeeping, Room Service, Inventory, Rooms |
 | KITCHEN | Room Service, Inventory |
 | STOREKEEPER | Inventory, Purchasing |
 | HR | HR |
 | ACCOUNTANT | Dashboard, Inventory, Purchasing, Expenses, Finance, Payments, Bookings |
-| AUDITOR | Dashboard, Front Desk, Concierge Handoffs, Housekeeping, Room Service, Inventory, Purchasing, Expenses, Finance, Payments, HR, Bookings, Blog Articles, Rooms, Guests, Settings, System Health, Audit Log |
+| AUDITOR | Dashboard, Front Desk, Chatbot Admin, Housekeeping, Room Service, Inventory, Purchasing, Expenses, Finance, Payments, HR, Bookings, Blog Articles, Rooms, Guests, Settings, System Health, Audit Log |
 
 AUDITOR opens everything read-only: the pages render, and every action they offer refuses at the server.
 

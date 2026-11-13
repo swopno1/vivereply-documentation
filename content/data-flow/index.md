@@ -522,11 +522,11 @@ Living list. Each entry: symptom → likely cause → where to look.
 - Exact folio posting mechanics for over-posted nights and early-departure
   credits (m11) — read `closeBusinessDay` accrual code.
 - Ledger auto-posting schedule and the empty-P&L-until-then behaviour.
-- `pending-expiry` 24h rule vs. daily scheduling (24–48h effective window).
 - Generic webhook route vs. per-gateway routes (m7).
 
 ## Changelog
 
+- **2026-11-13** — Resolved: `pending-expiry` is a 24h rule on an hourly sweep (24–25h effective), not daily scheduling — removed from open questions.
 - **2026-10-30** — Created.
 - **2026-10-30** — Added daily-sheet, cash-shift, and night-audit flows;
   extended the watchlist (11–14).

@@ -1,7 +1,7 @@
 # vivereply-documentation
 
 The documentation site for everything Vivereply — published at
-**docs.vivereply.com**. Built with [Nextra 4](https://nextra.site) (Next.js +
+**vivereply.com/docs**. Built with [Nextra 4](https://nextra.site) (Next.js +
 React).
 
 ## What's inside
@@ -32,8 +32,8 @@ pnpm start
 
 ## Deploy
 
-Connect the repo to Vercel (framework preset: Next.js). Production domain:
-`docs.vivereply.com`.
+Connect the repo to Vercel (framework preset: Next.js). Production path:
+`vivereply.com/docs`.
 
 ## Known patch
 

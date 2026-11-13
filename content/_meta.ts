@@ -6,7 +6,7 @@ export default {
   "front-desk": "Front Desk",
   housekeeping: "Housekeeping",
   "room-service": "Room Service",
-  "concierge-handoffs": "Concierge Handoffs",
+  "chatbot-admin": "Chatbot Admin",
   inventory: "Inventory",
   purchasing: "Purchasing",
   expenses: "Expenses",

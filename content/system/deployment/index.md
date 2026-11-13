@@ -54,7 +54,7 @@ In `vercel.json` (or your scheduler), confirm:
 |---|---|---|
 | Night audit | `5 22 * * *` (UTC) | Closes the business day |
 | Stripe reconcile | every 15 min | Settles pending Stripe payments |
-| Booking-hold expiry | per property decision | Releases expired PENDING holds |
+| Booking-hold expiry | `0 * * * *` (hourly sweep; 24h rule) | Releases PENDING holds older than 24h |
 
 ## Step 6 — Post-deploy verification
 

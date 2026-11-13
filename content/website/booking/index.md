@@ -54,7 +54,7 @@ inert.** Never confuse a demo payment with a real one.
   record, same statuses, same folio. If a guest calls about their online
   booking, find it in [Bookings](../../bookings/) by code, name, or phone.
 - **The booking code is the key.** Guests should keep it; staff should ask
-  for it. It's also what the [chatbot](../../concierge-handoffs/)
+  for it. It's also what the [chatbot](../../chatbot-admin/)
   verifies against.
 - **A failed payment still leaves a booking.** The booking is created as
   PENDING at the end of step 2, before payment. If the guest paid but has

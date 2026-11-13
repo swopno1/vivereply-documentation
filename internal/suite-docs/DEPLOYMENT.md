@@ -514,7 +514,7 @@ Leave `SSL_BASE_URL` and `SSL_IS_SANDBOX` unset in production (unset now means `
 
 ### 7.2e Every scheduled job: the complete crontab
 
-All of the jobs above, plus five that weren't listed before (pending-expiry, stripe-reconcile, blog clean-up, Google reviews, PMS sync), in one place. Paste the lines for what this property uses into `crontab -e` for the user that runs the app. Every job is safe to run twice. The payment and RMS jobs need the secret in the `Authorization` header; none of them accept it in the URL in production.
+All of the jobs above, plus six that weren't listed before (pending-expiry, stripe-reconcile, blog clean-up, Google reviews, PMS sync, guest-reminders), in one place. Paste the lines for what this property uses into `crontab -e` for the user that runs the app. Every job is safe to run twice. The payment and RMS jobs need the secret in the `Authorization` header; none of them accept it in the URL in production.
 
 ```cron
 # Replace yourresort.com with this property's domain.
@@ -526,6 +526,8 @@ All of the jobs above, plus five that weren't listed before (pending-expiry, str
 15 * * * * curl -fsS -X POST -H "Authorization: Bearer $(grep ^CRON_SECRET= /var/www/resort-app/.env | cut -d= -f2-)" https://yourresort.com/api/cron/ledger-posting >> /var/log/resort-cron.log 2>&1
 # Bookings: expire stale PENDING holds (always).
 0 * * * * curl -fsS -X POST -H "Authorization: Bearer $(grep ^CRON_SECRET= /var/www/resort-app/.env | cut -d= -f2-)" https://yourresort.com/api/cron/pending-expiry >> /var/log/resort-cron.log 2>&1
+# Guests: pre-arrival SMS/WhatsApp reminders for tomorrow's check-ins (always). Daily 09:00 Asia/Dhaka = 03:00 UTC; no enable-gate, the sender runs unconditionally.
+0 3 * * * curl -fsS -X POST -H "Authorization: Bearer $(grep ^CRON_SECRET= /var/www/resort-app/.env | cut -d= -f2-)" https://yourresort.com/api/cron/guest-reminders >> /var/log/resort-cron.log 2>&1
 # Payments: only the gateways this property has turned on (§7.2a–d).
 */5 * * * * curl -fsS -X POST -H "Authorization: Bearer $(grep ^CRON_SECRET= /var/www/resort-app/.env | cut -d= -f2-)" https://yourresort.com/api/cron/bkash-reconcile >> /var/log/resort-cron.log 2>&1
 */5 * * * * curl -fsS -X POST -H "Authorization: Bearer $(grep ^CRON_SECRET= /var/www/resort-app/.env | cut -d= -f2-)" https://yourresort.com/api/cron/nagad-reconcile >> /var/log/resort-cron.log 2>&1

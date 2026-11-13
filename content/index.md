@@ -1,7 +1,7 @@
 # Vivereply Documentation
 
 **ViveReply is one business solution with two faces** — published at
-**docs.vivereply.com**:
+**vivereply.com/docs**:
 
 | Face | What it is | Start here |
 |---|---|---|
@@ -50,7 +50,7 @@ Audit](front-desk/night-audit/)) → [Housekeeping](housekeeping/) →
 Journey](website/booking/), [Explore](website/explore/), [Stories](website/stories/),
 [Policies](website/policies/)) and the [Blog](blog/).
 
-**The machinery:** [Chatbot Handoffs](concierge-handoffs/), [System
+**The machinery:** [Chatbot Admin](chatbot-admin/), [System
 Health](system/), [Audit Log](audit/).
 
 **The reference:** [Data-Flow Reference](data-flow/) — the bird's-eye

@@ -1,4 +1,4 @@
-# Concierge Handoffs — Staff Training Module
+# Chatbot Admin — Staff Training Module
 
 > **Naming note:** this page documents the Suite screen that works the
 > **ViveReply Chatbot's** handoff queue (current build: *ViveReply
