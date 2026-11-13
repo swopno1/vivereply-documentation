@@ -48,13 +48,50 @@ The build runs `prisma generate` first. A green build with zero TypeScript error
 
 ## Step 5 — Register crons
 
-In `vercel.json` (or your scheduler), confirm:
+Every job below must run on its schedule or the property silently rots:
+the business day freezes, holds never release, reminders never send,
+postings never post. `vercel.json` schedules the night audit only —
+**everything else lives in the host scheduler** (VPS crontab, or the
+Docker host's crontab — see the note below). Each route takes
+`Authorization: Bearer $CRON_SECRET` (header only); without the secret
+every job fails closed.
 
-| Job | Schedule | Purpose |
-|---|---|---|
-| Night audit | `5 22 * * *` (UTC) | Closes the business day |
-| Stripe reconcile | every 15 min | Settles pending Stripe payments |
-| Booking-hold expiry | per property decision | Releases expired PENDING holds |
+| Job | Route | Schedule | Purpose |
+|---|---|---|---|
+| Night audit | `/api/cron/night-audit` | `5 22 * * *` (daily 04:05 Dhaka) | Closes the business day (Step 5b) |
+| Booking-hold expiry | `/api/cron/pending-expiry` | `0 * * * *` (hourly; 24h rule) | Releases PENDING holds older than 24h |
+| Ledger posting | `/api/cron/ledger-posting` | `15 * * * *` (hourly) | Posts records into the books |
+| Guest reminders | `/api/cron/guest-reminders` | `0 3 * * *` (daily 09:00 Dhaka) | Pre-arrival SMS/WhatsApp reminders |
+| Blog cleanup | `/api/cron/blog-attempts-cleanup` | `45 3 * * *` (daily) | Clears old submission attempts |
+| BanglaQR receipt retention | `/api/cron/banglaqr-retention` | `30 3 * * *` (daily) | Deletes old receipt images |
+| Google reviews | `/api/cron/fetch-google-reviews` | `0 5 * * *` (daily) | Pulls fresh reviews |
+| bKash / Nagad / SSLCommerz reconcile | `/api/cron/*-reconcile` | `*/5 * * * *` | Settles pending gateway payments |
+| Stripe reconcile | `/api/cron/stripe-reconcile` | `*/15 * * * *` | Settles pending Stripe payments |
+| BanglaQR release | `/api/cron/banglaqr-release` | `*/5 * * * *` | Releases expired receipt holds |
+| PMS sync | `/api/cron/pms-sync` | `*/15 * * * *` | Channel availability sync (when PMS is configured) |
+| Database backup | `scripts/backup-postgres.sh` | `0 2 * * *` (daily) | pg_dump + upload (shell, not HTTP) |
+
+Reconcile/release jobs only matter while their gateway is in use;
+System Health shows the rest as "Not needed". **Docker hosts:** a
+container has no cron daemon — put these same lines in the Docker
+host's crontab against the public URL (full text in the internal
+DEPLOYMENT §7.2e), or run a scheduler sidecar. Skipping this leaves
+every job at "Never ran" — the single most common broken deployment.
+
+## Step 5b — The business day and the night audit
+
+The property runs on a **business day**, not the calendar: the open day
+only moves when the night audit closes it (or the 04:00 failsafe fires).
+Everything dated follows the open day — folio lines, dashboard windows,
+expense caps, the daily sheet. A day that never closes freezes the
+property in time: new activity keeps landing on the stale date.
+
+The night audit, each close: decides arrivals that never checked in
+(no-show vs keep), posts **tonight's room nights one at a time** to
+in-house folios, carries stayover rooms into cleaning, flags undelivered
+room-service orders and unverified payments, then opens the next day.
+Room revenue exists only because this job runs — no audit, no room
+charges, ever.
 
 ## Step 6 — Post-deploy verification
 
@@ -63,6 +100,11 @@ In `vercel.json` (or your scheduler), confirm:
 - [ ] Availability API returns real room data for the property
 - [ ] Admin login works (OWNER)
 - [ ] Test booking → payment → confirmation flow in test mode
+- [ ] **System Health shows no needed job at "Never ran"** — open
+  `/admin/system` as OWNER past each job's first scheduled time (hourly
+  jobs: within the hour; dailies: the morning after). A job stuck at
+  "Never ran" means its schedule line is missing or failing — check the
+  scheduler host's cron log, not the app.
 - [ ] Night-audit cron fires (check logs next morning)
 
 ## Rollback

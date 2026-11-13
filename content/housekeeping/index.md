@@ -120,6 +120,11 @@ Mark done when handled.
 Front desk uses this to tell you things like *"Room 104 AC is leaking"*;
 use it to tell them *"204's TV remote missing — replacement ordered"*.
 
+**Audience matters twice.** This board shows only notes addressed to
+Housekeeping (plus Everyone). A note you address to *Front desk* will not
+appear here at all — it lives on the **Daily Sheet**, where the desk reads
+it. Don't go looking for it on this board afterwards.
+
 ## 6. How housekeeping connects to everything else
 
 - **Front desk readiness badges** (red/blue/green on stay cards) read this
@@ -147,4 +152,5 @@ should still be Dirty — hand over the rest with a note.
 | "Someone else changed this room" | A colleague acted first — the board refreshed; redo your action. |
 | A room won't offer "Pass inspection" | It's occupied (never inspected) or not in Clean state. |
 | Fail inspection won't save | A reason is required — the prompt can't be left empty. |
+| Counts changed with no action from you | The board refreshes every minute — someone else acted. Check the *"by …"* line on the card to see who. |
 | Arrival rooms still dirty near check-in | Escalate to the manager immediately — don't silently hope. |

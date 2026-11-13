@@ -21,6 +21,12 @@ read them back.
 
 ## 2. The activation rules
 
+Each card also carries its operating limits: the local gateways cap a
+single booking (৳500,000), a payment window (60 minutes), and refunds
+(7 days); BanglaQR caps at ৳1,000,000 with a 120-minute verification
+alert; SSLCommerz sends risky payments to **Hold for review**. Currency
+is BDT throughout.
+
 - **Env-configured ⇒ active.** A gateway fully configured via environment
   variables is active and its toggle is **locked** — the dashboard can't
   turn it off.

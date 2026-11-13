@@ -21,7 +21,7 @@ again before rendering. **Viewing** needs the view permission;
 |---|---|---|---|
 | **General** | [General](general/) | view / edit to save | Property identity, timezone, check-in/out windows, fees, email status |
 | **Payments** | [Payments](payments/) | edit (owner-only gateway forms) | Payment gateway configuration |
-| **Chatbot** | — | edit (owner-only) | Concierge property + bridge keys (website widget, staff handoff board) |
+| **Chatbot** | [Chatbot](chatbot/) | edit (owner-only) | Concierge property + bridge keys (website widget, staff handoff board) |
 | **PMS** | [PMS](pms/) | edit | PMS connections |
 | **Users** | [Users](users/) | USERS.view / USERS.* to change | Staff accounts and roles |
 | **Modules** | [Modules](modules/) | view | Feature flags per module |

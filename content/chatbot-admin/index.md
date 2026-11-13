@@ -1,4 +1,4 @@
-# Concierge Handoffs — Staff Training Module
+# Chatbot Admin — Staff Training Module
 
 > **Naming note:** this page documents the Suite screen that works the
 > **ViveReply Chatbot's** handoff queue (current build: *ViveReply
@@ -44,17 +44,63 @@ choice:
   or the `CONCIERGE_BRIDGE_KEY` env var) and every queue action goes
   through server-side calls. Staff never see or handle any key.
 
-## 3. Working a handoff
+## 3. The board
 
-Inside the board: pick a handoff from the list, **read the full transcript
-first** (never reply blind), add a follow-up note if needed, **assign** it
-to whoever owns the answer, and **close** it when resolved. Reopen if the
-guest comes back.
+The page opens with its own one-line brief: *"Guests talk to the chatbot
+first. When it can't answer, the guest is handed to the front desk. Your
+team answers on this page."*
+
+Three tabs — **Open**, **In progress**, **Closed** — each with its count,
+plus a search box (*Name, room, booking or message*) and a priority
+filter. Each handoff card carries badges for what the guest already did
+(*Incoming booking*, *Contact shared*) and the note/reply counts, so you
+can triage without opening everything.
 
 **Discipline:** a handoff is a guest waiting. Triage new ones at the start
 of every shift alongside the daily sheet.
 
-## 4. Setup and troubleshooting
+## 4. Working a handoff
+
+Open a handoff and read the **full transcript first** — never reply blind.
+The detail view has, top to bottom:
+
+- **Guest Info**: name, phone, booking, and a verification flag.
+- **Guest Contact**: the contact details the guest shared in chat. If the
+  guest shared a phone number, it appears here — that is the number to
+  call back on.
+- **Transcript**: Guest, Chatbot and system lines in order, including who
+  joined the conversation.
+- **Internal notes** with **Add note**: follow-up notes are internal — the
+  guest never sees them. Note the answer you gave and anything the next
+  shift must know.
+- **Assign to me** (or **Assign to…** + Assign): whoever owns the answer.
+- **Start progress** / **Close** / **Reopen**: closing hands the guest back
+  to the chatbot; reopening pauses the chatbot for that guest again.
+
+A standing warning in the detail panel: **DO NOT share payment details
+with guests.** Never send payment links, account numbers, or transaction
+IDs in chat — direct the guest to pay through the website or at the desk.
+
+## 5. Replying to the guest
+
+The reply composer is **gated behind Reopen**: on a closed handoff you
+first see *Reopen to compose a reply*. Reopening pauses the chatbot for
+that guest, so only reopen when you are ready to write — the guest is
+yours from that moment until you close again.
+
+The composer itself is deliberately small:
+
+- Heading **REPLY TO GUEST** with the subtext *"The guest sees this in
+  the chat, under your name."*
+- One text area (*Write to the guest…*) and a **Send reply** button that
+  stays disabled until you have written something.
+- No templates, no attachments, no character count in this version:
+  write plainly, keep it short, and re-read once before sending.
+
+After sending, add an internal note recording what you promised, then
+**Close** the handoff to hand the guest back to the chatbot.
+
+## 6. Setup and troubleshooting
 
 | What you see | Meaning | What to do |
 |---|---|---|

@@ -57,6 +57,10 @@ never rewritten, only corrected.
 **Every post is idempotent** (a fresh key per submit): double-clicking the
 button can't double-charge the guest.
 
+After a successful post (*"Posted."*), the totals and the line list update
+in place — no reload needed. If the numbers ever look stale, reload once;
+a persistent mismatch after reload is a real bug — escalate it.
+
 ## 4. How the folio connects
 
 - **Night audit** posts each night's ROOM_CHARGE here.

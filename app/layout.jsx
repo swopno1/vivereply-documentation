@@ -24,7 +24,7 @@ const navbar = (
 
 const footer = (
   <Footer>
-    MIT {new Date().getFullYear()} © ViveScript Solutions LLC. — docs.vivereply.com
+    MIT {new Date().getFullYear()} © ViveScript Solutions LLC. — vivereply.com/docs
   </Footer>
 )
 

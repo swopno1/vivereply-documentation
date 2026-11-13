@@ -14,12 +14,15 @@ what guest data the property keeps.
 
 The guest directory: every person with a booking, newest first, 20 per
 page. **Search matches name, email, or phone** — the same fragments you
-use on the bookings page.
+use on the bookings page. Sort by most frequent, most recent, most spent,
+or most recent stay; filter to All, Returning, New, or VIP.
 
-Each guest row shows stay **counts**, last stay, and member-since — at a
-glance: is this a first-timer or a regular? The full **booking history**
-(room, dates, newest first) opens in a dialog via the row's **View history**
-button.
+Each row shows guest name, phone, email, **total stays**, **last stay**,
+and **member since** — at a glance: is this a first-timer or a regular?
+**Last stay** is the check-in of their latest *real* stay (checked in or
+completed) — upcoming bookings never count, so the date is always in the
+past. The full **booking history** (contact plus reservation rows, newest
+first) opens in a dialog via the row's **View history** button.
 
 ## 2. What the property keeps per guest
 

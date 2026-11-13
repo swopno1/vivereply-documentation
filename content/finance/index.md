@@ -31,8 +31,12 @@ debits, credits, balances, and whether they reconcile.
 ## 2. Starting the books
 
 Before anything else: **choose the first business date the books cover**
-(`ledgerStartDate`). Everything the resort records from that date posts
-itself. Enter **opening balances as a journal dated on that day**.
+(`ledgerStartDate`) — the overview leads with **Start the books** until
+you do. Everything the resort records from that date posts itself, and
+all payments so far are treated as receipts. Enter **opening balances as
+a journal dated on that day**. Until the books start, every balance on
+this page reads ৳0 no matter how many bookings exist — that is the
+not-started state, not lost money.
 
 **Why the date matters:** postings before the start date don't exist in
 the books. Pick the date deliberately (usually the first day of a month),
@@ -48,9 +52,9 @@ accountant.
 - **Owed to suppliers** — accounts payable, with **overdue** highlighted
   in red.
 - **Waiting for approval** — the queues: manual journals, supplier
-  payments, petty cash counts, **BanglaQR verifications** (the
-  verification queue now lives here — see [its page](banglaqr-verification/)),
-  and **Stripe disputes awaiting response**.
+  payments, petty cash counts, **BanglaQR verifications** (counted here,
+  worked in the [verification queue](banglaqr-verification/) under
+  Payments), and **Stripe disputes awaiting response**.
 - **Records waiting to be posted** — auto-postings not yet in the books,
   with **Post now**.
 

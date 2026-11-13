@@ -12,13 +12,21 @@ when it shows problems.
 
 ## 1. What the page is
 
-A read-only health check (SETTINGS.view — owner and auditor territory):
-**scheduled jobs** (their state: ok, stale, failing, never run — or "Not
-needed" when the job's module, gateway, or config isn't in use),
-**configuration checks** (required environment variables for core
-services, email, and enabled gateways), the **business day**, the
-**books** state, and **owner/2FA stats**. One number at the top: problem
-count.
+A read-only health check (SETTINGS.view — owner and auditor territory)
+in three blocks, with one problem count at the top:
+
+- **Scheduled jobs** — all 14, each with its schedule and state: ok,
+  stale, failing, never run — or "Not needed" when the job's module,
+  gateway, or config isn't in use (reconcile jobs for unused gateways,
+  reviews without API keys, PMS sync without a PMS). See the
+  [runbook](deployment/) for what each job does and when it must run.
+- **Configuration** — required environment variables grouped by area:
+  Core, Email (RESEND_API_KEY, RESEND_FROM_EMAIL), each payment
+  gateway, media (R2), PMS, plus the payment mode and production-mode
+  flags. A missing secret names itself here.
+- **Operations** — the **open business day** (with a "N days behind"
+  warning when the night audit hasn't closed), the **books** state
+  (started or not), and **owner/2FA stats**.
 
 ## 2. Reading it
 

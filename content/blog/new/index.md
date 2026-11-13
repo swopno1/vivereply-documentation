@@ -12,14 +12,18 @@ standards.
 
 ## 1. The editor
 
-One form for everything a post needs:
+Four tabs — **Write** (the form), **Preview** (as guests will see it),
+**Bengali** (the Bengali version, same fields), **SEO** (title and
+description overrides) — over one form for everything a post needs:
 
 - **Title** — the headline guests see. Specific beats clever: *"3 Days in
   Cox's Bazar on a Budget"* beats *"Paradise Found"*.
 - **Slug** — the URL piece, auto-derived from the title. Keep it short,
   lowercase, hyphenated.
 - **Excerpt** — one or two sentences shown on listing cards and link
-  previews. Write it deliberately; it's the post's advertisement.
+  previews, **140–300 characters** (the form enforces it: *"Must be at
+  least 140 characters."*). Write it deliberately; it's the post's
+  advertisement.
 - **Content** — the body in Markdown (headings, bold, lists, links all
   work). Staff posts have no guest-style length gate (up to 100,000
   characters) — write in the guest guidelines' spirit: substantial enough
@@ -31,7 +35,9 @@ One form for everything a post needs:
 - **Photos** — up to the staff image limit, each under the size limit
   (JPEG/PNG/WebP), **each with a short description**. Photos without
   descriptions are incomplete — the description is also the accessibility
-  text.
+  text. Save the draft first (*"Draft saved. You can add photos now."*) —
+  photos attach only after the first save. Uploads are resized to 2400px
+  and stripped of location data automatically.
 
 ## 2. Publishing paths
 

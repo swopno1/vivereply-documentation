@@ -12,7 +12,9 @@ After this module you can enter an expense so it sails through approval.
 ## 1. The flow
 
 1. **Date spent** — the day the money went out (defaults to the business
-   date).
+   date). It cannot be later than the open business day — the form refuses
+   future dates (*"Value must be \{date} or earlier"*), so if today feels
+   wrong, check with a manager whether the night audit has closed.
 2. **Category** — pick the truest one (Utilities, Fuel, Repairs,
    Transport, Supplies, Marketing, Staff welfare, Fees/taxes, Bank charges,
    Other). "Other" is a last resort; a miscategorized expense corrupts the

@@ -15,10 +15,10 @@
 
 ## Hold expiry
 
-> **Verify:** the PMS contract states a 24-hour hold expiry. A 24–48h figure was reported elsewhere — confirm against the live contract before quoting to guests.
+> **Hold window: 24 hours** from draft creation (founder decision 2026-10-27, enforced in `pending-expiry.ts`). The hourly sweep expires stale drafts, so the effective window is 24–25 hours. Quote "24 hours" to guests.
 
-- PENDING drafts expire after the contract hold window.
-- Expiry is enforced by the booking-hold cron (see the deployment runbook).
+- PENDING drafts expire 24 hours after creation when no payment evidence exists.
+- Expiry is enforced by the hourly booking-hold cron (see the deployment runbook).
 - Expired holds release the room automatically — no staff action needed.
 - The guest is notified if contact details were captured.
 

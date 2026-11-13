@@ -33,6 +33,14 @@ counts** per unit. Adding/removing units needs the elevated permission —
 and the live counts are why: **never remove a unit with future bookings**;
 the count column tells you which are safe.
 
+Each unit also carries Floor/Block labels and a **status dropdown**.
+Check-in marks the unit OCCUPIED and check-out (or cancelling a checked-in
+stay) frees it back to AVAILABLE, automatically. Units put out of service
+are never changed automatically — that flag is always manual. Note what
+the status does *not* do: availability is computed from live bookings,
+not from this label, and cleanliness lives on the housekeeping board —
+three separate facts that usually (but not always) move together.
+
 Units also carry the maintenance/out-of-order states that take them out
 of sale (see [Housekeeping](../../housekeeping/) and the daily sheet's
 room grid).

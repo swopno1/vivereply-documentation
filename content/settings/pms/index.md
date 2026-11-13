@@ -2,31 +2,29 @@
 
 **Page:** `/admin/settings?tab=pms` — PMS connections.
 **Audience:** owners.
-**Time to complete:** about 10 minutes.
+**Time to complete:** about 5 minutes.
 **Prerequisite:** the [Settings](..) module.
 
 ## Learning objectives
 
-After this module you know what the PMS tab is for and when to touch it.
+After this module you know what the PMS tab is today: a planned
+integration point, not a working connection screen.
 
-## 1. What it is
+## 1. Planned — not yet connected
 
-Connections to external Property Management Systems — where this
-installation syncs with (or is driven by) an outside PMS. For a property
-running this system as its PMS, the tab is informational: there is nothing
-to connect.
+The tab says so itself: **PMS — Planned.** Connections to property
+management systems (Opera, Cloudbeds, Staah and local systems) arrive in
+a later phase. Until then, **nothing on this tab changes how bookings
+work today** — availability, rates, and reservations all live in this
+system alone.
 
-## 2. When to touch it
+Do not promise a PMS or channel-manager sync to owners, partners, or
+guests on the basis of this tab. When the integrations land, this page
+will document the connection steps.
 
-Only when the property's setup actually involves an external PMS — a
-migration, a chain integration, a two-system transition period. Like all
-settings, changes here are slow-moving truths: know what reads the
-connection before changing it, and coordinate with whoever runs the other
-system.
-
-## 3. Troubleshooting
+## 2. Troubleshooting
 
 | Symptom | Check first |
 |---|---|
 | Tab missing | Owner-level edit permission required. |
-| Sync not running | The connection details on this tab, then the other system's status — and `/admin/system` job heartbeats. |
+| Bookings not syncing anywhere | Correct — there is nothing to sync with yet. This system is the system of record. |

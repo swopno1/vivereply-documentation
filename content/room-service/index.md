@@ -19,7 +19,9 @@ After this module you can:
 One card per order ticket, oldest first, phone-first with large buttons,
 **refreshing every 30 seconds** so the kitchen sees each other's work.
 Two sections: **To do** (open tickets) and **Finished today** (collapsed
-history).
+history). The header shows the **business date** — "Finished today" means
+the business day, not the calendar date, so after midnight and before the
+night audit it still shows yesterday's finished orders.
 
 **Permissions.** Viewing needs room-service-view. *Creating orders* needs
 the create permission (front desk). *Moving tickets* needs the edit
@@ -60,6 +62,9 @@ on the fresh state.
 - The **kitchen note** in amber — *"less spicy, no onion"* — read it before
   cooking, not after.
 - *"Ordered \{time} by \{name}"* and the total.
+- Finished tickets keep the full timeline — placed, started, ready and
+  delivered times — so a late-delivery complaint can be traced to the
+  exact step that slipped.
 - The **waiting timer**: minutes since the order was placed. It turns **red
   at 30 minutes** — a red timer is an escalation, not decoration. If you see
   red, finish it or tell the manager why you can't.
