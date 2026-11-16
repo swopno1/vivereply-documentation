@@ -51,26 +51,39 @@ alert below is computed **for this business day** — not for "right now".
 
 ### What "business day" means
 
-A hotel day does not end at midnight. Guests are still asleep, the night
-auditor is still working, and a booking made at 01:30 belongs to *yesterday's*
-business. The business day therefore rolls over in the early morning (around
-04:00 property time) when the **night audit** closes the previous day. Until
-that close happens, the dashboard keeps showing yesterday.
+Two different days matter in this system — don't mix them up.
+
+- **The open day** is stored by the system and moves only when the **night
+  audit** closes the previous day (around 04:00 property time) or an
+  authorized user runs a manual day-close. A hotel day does not end at
+  midnight: guests are still asleep, the night auditor is still working,
+  and a booking made at 01:30 belongs to *yesterday's* business. Until
+  the close happens, arrivals, charges, and postings keep landing on the
+  day that hasn't been audited.
+- **The dashboard header** shows the property clock's calendar day — the
+  date it is right now in the property time zone. It does not wait for
+  the night audit.
+
+So when the day goes stale (the audit hasn't closed yet), the dashboard
+may show the new day while operations still post to the unclosed one.
+That split is visible only in that window — and it is why the next habit
+matters.
 
 ### How to use it
 
-- **Always read this line first** when a number looks wrong. "Why does it
-  still say yesterday's date at 02:00?" — because the night audit hasn't
-  closed the day yet. That is correct behaviour, not a bug.
+- **Always read this line first** when a number looks wrong. "Why is
+  Revenue Today counting a day the night audit hasn't closed?" — because
+  the dashboard follows the property clock, while postings follow the
+  open day. That is how the code works today, not a bug in your reading.
 - The time zone tells you whose clock the system follows. Ours is
   Asia/Dhaka. If it ever shows anything else, tell your manager — it is a
   property setting, not something staff change.
 
 ### Where it comes from
 
-The business day is stored by the system and advanced only by the night
-audit (automatic) or a manual day-close by an authorized user. The time zone
-comes from property settings (Settings → General).
+The header date comes from the property clock (Settings → General time
+zone). The open day is stored by the system and advanced only by the
+night audit (automatic) or a manual day-close by an authorized user.
 
 ---
 
