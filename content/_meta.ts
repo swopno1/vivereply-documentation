@@ -7,6 +7,7 @@ export default {
   housekeeping: "Housekeeping",
   "room-service": "Room Service",
   "chatbot-admin": "Chatbot Admin",
+  integrations: "Integrations",
   inventory: "Inventory",
   purchasing: "Purchasing",
   expenses: "Expenses",
